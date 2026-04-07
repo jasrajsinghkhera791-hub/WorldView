@@ -49,3 +49,23 @@ Aviation APIs
 AIS Stream
 Financial APIs
 AI APIs
+
+Backend structure:
+
+package.json — all deps, scripts
+docker-compose.yml + Dockerfile
+.env.example — all API keys documented
+src/config/index.js — centralized config
+src/utils/logger.js — Winston logging
+src/utils/normalize.js — unified data format for all types
+src/cache/index.js — Redis + memory fallback
+src/services/flights.js — OpenSky real-time
+src/services/ships.js — AIS Stream WebSocket (unlimited ships)
+src/services/news.js — GNews + geolocation
+src/services/stocks.js — Twelve Data + Yahoo Finance (Indian + global)
+src/services/crypto.js — CoinGecko
+src/services/earthquakes.js — USGS real-time
+src/services/geopolitical.js — 17 conflict zones + threat scoring
+src/services/weather.js — OpenWeather 15 cities
+src/sockets/index.js — Socket.io broadcaster
+src/routes/api.js — all REST endpoints
