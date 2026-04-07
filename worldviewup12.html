@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NEXUS WORLDVIEW // CIA-GRADE GLOBAL SURVEILLANCE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --c:#00d4ff;--cd:#006e88;--g:#00ff88;--a:#ffaa00;--r:#ff3355;--p:#bb66ff;--o:#ff6600;--tl:#00ffcc;
+  --bg:#010608;--bg1:#020b10;--bg2:#030e14;
+  --b:rgba(0,212,255,0.09);--b2:rgba(0,212,255,0.2);--b3:rgba(0,212,255,0.48);
+  --t:#4a7585;--t2:#6a9aaa;--t3:#a5ccd8;
+  --f:'Share Tech Mono',monospace;--d:'Orbitron',monospace;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--t);font-family:var(--f);}
+.scan{position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.04) 2px,rgba(0,0,0,0.04) 4px);}
+.vig{position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background:radial-gradient(ellipse 88% 88% at center,transparent 44%,rgba(0,0,0,0.85) 100%);}
+.shell{display:grid;grid-template-columns:220px 1fr 230px;
+  grid-template-rows:48px 1fr 1fr 26px;
+  height:100vh;width:100vw;gap:1px;background:var(--b);}
+/* TOPBAR */
+.topbar{grid-column:1/-1;display:flex;align-items:center;
+  background:var(--bg1);padding:0 16px;border-bottom:1px solid var(--b3);
+  box-shadow:0 0 60px rgba(0,0,0,0.9);gap:14px;position:relative;overflow:hidden;}
+.topbar::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,212,255,0.7) 20%,rgba(0,255,136,0.4) 50%,rgba(0,212,255,0.7) 80%,transparent);}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.orb{width:32px;height:32px;border-radius:50%;border:1px solid rgba(0,212,255,0.6);
+  display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--c);
+  box-shadow:0 0 22px rgba(0,212,255,0.85),inset 0 0 10px rgba(0,212,255,0.15);
+  animation:op 3s ease-in-out infinite;}
+@keyframes op{0%,100%{box-shadow:0 0 22px rgba(0,212,255,0.85),inset 0 0 10px rgba(0,212,255,0.15)}
+  50%{box-shadow:0 0 50px rgba(0,212,255,1),inset 0 0 22px rgba(0,212,255,0.35)}}
+.bname{font-family:var(--d);font-size:17px;font-weight:900;color:var(--c);letter-spacing:7px;
+  text-shadow:0 0 32px rgba(0,212,255,0.95);}
+.bsub{font-size:6.5px;color:var(--cd);letter-spacing:3px;margin-top:1px;}
+.cls-badge{font-family:var(--d);font-size:7px;padding:3px 9px;letter-spacing:3px;
+  background:var(--r);color:#000;border-radius:1px;flex-shrink:0;animation:clsblink 3.5s ease-in-out infinite;}
+@keyframes clsblink{0%,80%,100%{opacity:1}81%{opacity:0}83%{opacity:1}85%{opacity:0}87%{opacity:1}}
+.tstats{display:flex;align-items:stretch;flex:1;justify-content:center;}
+.ts{text-align:center;padding:0 12px;border-right:1px solid var(--b);}
+.ts:last-child{border-right:none;}
+.tsl{font-size:6px;color:var(--t);letter-spacing:2px;}
+.tsv{font-family:var(--d);font-size:12px;letter-spacing:2px;margin-top:3px;}
+.cv{color:var(--c);}.gv{color:var(--g);}.av{color:var(--a);}.rv{color:var(--r);}.pv{color:var(--p);}.ov{color:var(--o);}
+.topright{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.bdg{font-size:7px;padding:3px 8px;border-radius:2px;letter-spacing:1px;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.bg2{color:var(--g);border:1px solid rgba(0,255,136,0.28);background:rgba(0,255,136,0.04);}
+.ba2{color:var(--a);border:1px solid rgba(255,170,0,0.28);background:rgba(255,170,0,0.04);}
+.dp{width:5px;height:5px;border-radius:50%;background:currentColor;animation:dpls 1.6s ease-in-out infinite;}
+@keyframes dpls{0%,100%{opacity:1}50%{opacity:0.2}}
+/* SIDEBARS */
+.left{grid-row:2/4;background:var(--bg1);display:flex;flex-direction:column;border-right:1px solid var(--b);overflow:hidden;position:relative;}
+.left::after{content:"";position:absolute;left:0;top:6%;bottom:6%;width:1px;background:linear-gradient(to bottom,transparent,rgba(0,212,255,0.5),transparent);pointer-events:none;}
+.right{grid-row:2/4;background:var(--bg1);display:flex;flex-direction:column;border-left:1px solid var(--b);overflow:hidden;}
+.pttl{font-family:var(--d);font-size:7px;letter-spacing:3px;color:var(--cd);padding:8px 12px 7px;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.pttl::before{content:"";width:10px;height:1px;background:linear-gradient(to right,var(--c),transparent);}
+.ptbdg{margin-left:auto;font-size:7px;padding:1px 6px;border-radius:1px;background:rgba(0,212,255,0.08);border:1px solid var(--b2);color:var(--c);}
+.fb{width:100%;display:flex;align-items:center;gap:8px;padding:6px 12px;background:none;border:none;cursor:pointer;color:var(--t);font-family:var(--f);font-size:8.5px;letter-spacing:1px;text-align:left;transition:all 0.15s;position:relative;border-bottom:1px solid var(--b);}
+.fb:hover{background:rgba(0,212,255,0.03);color:var(--t2);}
+.fb.on{color:var(--c);background:rgba(0,212,255,0.055);}
+.fb.on::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--c);box-shadow:0 0 14px var(--c);}
+.fi{font-size:11px;width:16px;flex-shrink:0;}.fn{flex:1;}
+.fc2{font-size:7px;padding:1px 5px;border-radius:1px;background:rgba(0,212,255,0.07);border:1px solid var(--b);color:var(--c);}
+.far{width:5px;height:5px;border-radius:50%;background:var(--r);box-shadow:0 0 6px var(--r);animation:dpls 0.8s ease-in-out infinite;}
+.tbox{padding:7px 12px;border-bottom:1px solid var(--b);flex-shrink:0;}
+.btitle{font-size:6.5px;color:var(--t);letter-spacing:2px;margin-bottom:5px;text-transform:uppercase;}
+.trow{display:flex;align-items:center;gap:5px;margin-bottom:3px;}
+.tlbl{font-family:var(--d);font-size:6px;width:36px;flex-shrink:0;}
+.ttrack{flex:1;height:3px;background:rgba(255,255,255,0.04);border-radius:2px;overflow:hidden;}
+.tfill{height:100%;border-radius:2px;transition:width 1s;}
+.tpct{font-size:6.5px;color:var(--t);width:24px;text-align:right;}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:6px;flex-shrink:0;border-bottom:1px solid var(--b);}
+.sc{background:var(--bg2);border:1px solid var(--b);padding:5px 8px;}
+.sv2{font-family:var(--d);font-size:12px;}
+.sl{font-size:6px;color:var(--t);letter-spacing:1px;margin-top:2px;}
+.spkwrap{padding:7px 12px;border-bottom:1px solid var(--b);flex-shrink:0;}
+.sptitle{font-size:6px;color:var(--t);letter-spacing:2px;margin-bottom:4px;}
+.spbars{display:flex;align-items:flex-end;gap:1px;height:26px;}
+.spbar{flex:1;border-radius:1px 1px 0 0;min-height:1px;}
+.sigbox{padding:7px 12px;border-bottom:1px solid var(--b);flex-shrink:0;}
+.sigrow{display:flex;align-items:center;gap:5px;margin-bottom:3.5px;font-size:6.5px;}
+.sigfreq{color:var(--a);width:52px;flex-shrink:0;}
+.sigbar{flex:1;height:3px;background:rgba(255,255,255,0.04);border-radius:2px;overflow:hidden;}
+.sigfill{height:100%;border-radius:2px;transition:width 0.6s;}
+.nodewrap{padding:7px 12px;flex:1;overflow-y:auto;}
+.nodewrap::-webkit-scrollbar{width:2px;}
+.nodewrap::-webkit-scrollbar-thumb{background:var(--b2);}
+.nrow{display:flex;align-items:center;gap:5px;padding:3px 0;font-size:7px;border-bottom:1px solid rgba(0,212,255,0.04);}
+.ndot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.non{background:var(--g);box-shadow:0 0 5px var(--g);}
+.nwrn{background:var(--a);box-shadow:0 0 5px var(--a);}
+.nname{flex:1;color:var(--t2);}
+/* RIGHT */
+.rtabs{display:flex;border-bottom:1px solid var(--b);flex-shrink:0;}
+.rtab{flex:1;padding:5px 3px;background:none;border:none;border-right:1px solid var(--b);cursor:pointer;font-family:var(--f);font-size:7px;color:var(--t);display:flex;align-items:center;justify-content:center;gap:3px;transition:all 0.15s;position:relative;}
+.rtab:last-child{border-right:none;}
+.rtab:hover{background:rgba(0,212,255,0.04);color:var(--t2);}
+.rtab.on{color:var(--c);background:rgba(0,212,255,0.05);}
+.rtab.on::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--c);}
+.rpanel{display:none;flex:1;flex-direction:column;min-height:0;}
+.rpanel.show{display:flex;}
+.fhead{display:grid;padding:4px 10px;font-size:6px;color:var(--cd);letter-spacing:1.5px;background:rgba(0,212,255,0.02);border-bottom:1px solid var(--b);flex-shrink:0;}
+.flist{flex:1;overflow-y:auto;min-height:0;}
+.flist::-webkit-scrollbar{width:2px;}
+.flist::-webkit-scrollbar-thumb{background:var(--b2);}
+.frow{display:grid;padding:4px 10px;font-size:8px;border-bottom:1px solid rgba(0,212,255,0.04);transition:background 0.1s;cursor:pointer;align-items:center;}
+.frow:hover{background:rgba(0,212,255,0.05);}
+.frow.sel{background:rgba(0,212,255,0.08);border-left:2px solid var(--c);}
+.fcs{color:var(--c);font-weight:bold;font-size:8.5px;}
+.ftag{font-size:6px;padding:1px 3px;border-radius:1px;display:inline-block;margin-top:1px;}
+.ftg-hi{background:rgba(187,102,255,0.1);color:var(--p);border:1px solid rgba(187,102,255,0.28);}
+.ftg-mil{background:rgba(255,102,0,0.1);color:var(--o);border:1px solid rgba(255,102,0,0.28);}
+.ftg-em{background:rgba(255,51,85,0.1);color:var(--r);border:1px solid rgba(255,51,85,0.28);}
+.ftg-std{background:rgba(0,212,255,0.06);color:var(--cd);border:1px solid var(--b);}
+.logpnl{height:115px;border-top:1px solid var(--b);flex-shrink:0;display:flex;flex-direction:column;}
+.logscrl{flex:1;overflow-y:auto;padding:4px 10px;}
+.logscrl::-webkit-scrollbar{width:2px;}
+.lline{font-size:7px;line-height:1.8;display:flex;gap:5px;}
+.ltime{color:var(--cd);flex-shrink:0;}.lsrc{flex-shrink:0;min-width:34px;font-size:6.5px;}.lmsg{color:var(--t);}
+.ok{color:var(--g);}.warn{color:var(--a);}.crit{color:var(--r);}.info{color:var(--c);}.mil{color:var(--o);}.ship{color:var(--p);}
+/* GLOBE */
+.map{grid-row:2/4;position:relative;background:var(--bg);overflow:hidden;}
+#globe{position:absolute;inset:0;width:100%;height:100%;cursor:grab;}
+#globe.dragging{cursor:grabbing;}
+.hud{position:absolute;background:rgba(1,5,9,0.92);border:1px solid var(--b2);padding:6px 10px;backdrop-filter:blur(12px);}
+.htl{top:10px;left:10px;min-width:150px;}
+.htr{top:10px;right:10px;text-align:right;min-width:155px;}
+.hbl{bottom:10px;left:10px;display:flex;gap:14px;}
+.hbr{bottom:10px;right:10px;}
+.hrow{display:flex;gap:8px;font-size:7px;color:var(--t);line-height:1.7;}
+.hk{color:var(--t);min-width:52px;}.hv{color:var(--c);}.hv-g{color:var(--g);}.hv-a{color:var(--a);}.hv-r{color:var(--r);}
+.hbl-item{font-size:6.5px;color:var(--t2);}
+.hbl-item b{color:var(--c);}
+.glb-leg{position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(1,5,9,0.92);border:1px solid var(--b2);padding:7px 10px;backdrop-filter:blur(12px);}
+.ltit{font-size:6px;color:var(--t);letter-spacing:2px;margin-bottom:4px;}
+.lrow{display:flex;align-items:center;gap:5px;font-size:6px;color:var(--t2);margin-bottom:3px;}
+.ldot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.ldia{width:8px;height:8px;flex-shrink:0;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);}
+.lsq{width:7px;height:7px;flex-shrink:0;border-radius:1px;}
+.alert-bar{position:absolute;top:0;left:0;right:0;height:20px;background:rgba(255,51,85,0.07);border-bottom:1px solid rgba(255,51,85,0.4);overflow:hidden;display:none;align-items:center;}
+.alert-bar.show{display:flex;}
+.alert-inner{display:inline-flex;gap:50px;animation:ascroll 24s linear infinite;white-space:nowrap;padding-left:100%;}
+@keyframes ascroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.ai{font-size:7.5px;color:var(--r);letter-spacing:1.5px;}
+.ai::before{content:"⚠ ";color:var(--a);}
+.mzoom{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px;}
+.zbtn{width:26px;height:26px;background:rgba(1,5,9,0.9);border:1px solid var(--b2);color:var(--c);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.zbtn:hover{background:rgba(0,212,255,0.08);}
+.ctrl-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(1,5,9,0.9);border:1px solid var(--b);padding:3px 10px;font-size:6.5px;color:var(--t2);white-space:nowrap;letter-spacing:1px;}
+.threat-board{position:absolute;right:12px;top:52px;width:470px;max-height:260px;background:rgba(1,5,9,0.96);border:1px solid rgba(255,102,0,0.5);display:none;z-index:220;padding:8px 10px;backdrop-filter:blur(10px);}
+.threat-board.show{display:flex;flex-direction:column;}
+.th-title{font-family:var(--d);font-size:8px;letter-spacing:2px;color:var(--o);margin-bottom:6px;}
+.th-head,.th-row{display:grid;grid-template-columns:0.35fr 1fr 0.8fr 1.15fr 0.55fr 0.5fr 0.55fr;gap:5px;align-items:center;}
+.th-head{font-size:6px;color:var(--a);letter-spacing:1px;border-bottom:1px solid rgba(255,102,0,0.25);padding-bottom:3px;}
+.th-list{margin-top:4px;overflow:auto;display:flex;flex-direction:column;gap:2px;min-height:0;}
+.th-list::-webkit-scrollbar{width:2px;}
+.th-list::-webkit-scrollbar-thumb{background:rgba(255,102,0,0.45);}
+.th-row{font-size:6.5px;color:var(--t3);padding:2px 0;border-bottom:1px solid rgba(255,102,0,0.08);}
+.dpop{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(1,6,12,0.97);border:1px solid var(--b3);padding:14px;width:265px;z-index:300;display:none;backdrop-filter:blur(18px);}
+.dpop.show{display:block;}
+.dpop-hdr{display:flex;justify-content:space-between;margin-bottom:9px;}
+.dpop-title{font-family:var(--d);font-size:9.5px;color:var(--c);letter-spacing:3px;}
+.dpop-close{cursor:pointer;color:var(--t);font-size:11px;}
+.dpop-close:hover{color:var(--c);}
+.dpop-type{font-size:6.5px;letter-spacing:2px;padding:2px 7px;display:inline-block;margin-bottom:8px;border-radius:1px;}
+.dt-flt{color:var(--c);border:1px solid rgba(0,212,255,0.3);background:rgba(0,212,255,0.06);}
+.dt-mil{color:var(--o);border:1px solid rgba(255,102,0,0.3);background:rgba(255,102,0,0.06);}
+.dt-vsl{color:var(--p);border:1px solid rgba(187,102,255,0.3);background:rgba(187,102,255,0.06);}
+.drow{display:flex;justify-content:space-between;padding:3px 0;font-size:7.5px;border-bottom:1px solid rgba(0,212,255,0.05);}
+.dk{color:var(--t);}.dv{color:var(--t3);}
+/* BOTTOM */
+.bot-l,.bot-c,.bot-r{background:var(--bg1);border-top:1px solid var(--b);display:flex;flex-direction:column;overflow:hidden;}
+.bot-l,.bot-c{border-right:1px solid var(--b);}
+.wxgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:4px;flex:1;overflow:auto;}
+.wxcard{background:var(--bg2);border:1px solid var(--b);padding:4px 6px;}
+.wxcity{font-size:5.5px;color:var(--t);letter-spacing:1px;}
+.wxtemp{font-family:var(--d);font-size:10px;margin-top:1px;}
+.wxline{font-size:5.5px;color:var(--cd);margin-top:1px;}
+.wxbdg{font-size:5px;padding:1px 3px;border-radius:1px;margin-top:1px;display:inline-block;}
+.wxc{color:var(--g);border:1px solid rgba(0,255,136,0.2);}.wxcl{color:var(--cd);border:1px solid var(--b);}
+.wxr{color:var(--r);border:1px solid rgba(255,51,85,0.2);}.wxs{color:var(--a);border:1px solid rgba(255,170,0,0.2);}.wxsn{color:var(--p);border:1px solid rgba(187,102,255,0.2);}
+#chart{flex:1;width:100%;display:block;}
+.sbar{grid-column:1/-1;display:flex;align-items:center;background:var(--bg1);border-top:1px solid var(--b3);overflow:hidden;}
+.stag{padding:0 14px;font-size:7.5px;color:#000;background:var(--c);height:100%;display:flex;align-items:center;font-family:var(--d);letter-spacing:3px;white-space:nowrap;flex-shrink:0;font-weight:700;}
+.sdiv{width:1px;height:12px;background:var(--b2);margin:0 7px;flex-shrink:0;}
+.sitm{font-size:7px;display:flex;gap:3px;align-items:center;flex-shrink:0;margin-right:8px;}
+.sik{color:var(--t);}.siv{color:var(--c);font-weight:bold;}.siv-g{color:var(--g);font-weight:bold;}.siv-a{color:var(--a);font-weight:bold;}.siv-r{color:var(--r);font-weight:bold;}
+.ticker{flex:1;overflow:hidden;}
+.tinner{display:inline-flex;gap:28px;animation:stk 40s linear infinite;white-space:nowrap;}
+@keyframes stk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.titem{font-size:7.5px;}.tk{color:var(--t);}.tv2{color:var(--g);margin-left:2px;}
+/* LOADING */
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;background:rgba(1,5,9,0.97);z-index:500;}
+.lring{width:48px;height:48px;border:2px solid var(--b2);border-top:2px solid var(--c);border-radius:50%;animation:spin 0.9s linear infinite;}
+.lr2{position:absolute;width:36px;height:36px;border:1px solid transparent;border-bottom:1px solid var(--g);border-radius:50%;animation:spin 1.5s linear infinite reverse;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lwrap{position:relative;width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+.ltxt{font-family:var(--d);font-size:11px;color:var(--c);letter-spacing:4px;}
+.lsub{font-size:7.5px;color:var(--t);letter-spacing:2px;}
+.lsteps{display:flex;flex-direction:column;gap:4px;margin-top:4px;}
+.lstep{font-size:6.5px;color:var(--t);display:flex;align-items:center;gap:6px;letter-spacing:1.5px;}
+.lsdot{width:5px;height:5px;border-radius:50%;}
+.ls-done{background:var(--g);box-shadow:0 0 5px var(--g);}
+.ls-active{background:var(--a);animation:dpls 0.7s ease-in-out infinite;}
+.ls-pend{background:rgba(0,212,255,0.1);}
+@media (max-width:1300px){
+  .wxgrid{grid-template-columns:repeat(4,1fr);}
+  .threat-board{width:420px;}
+}
+@media (max-width:1050px){
+  .wxgrid{grid-template-columns:repeat(3,1fr);}
+  .threat-board{width:360px;}
+}
+</style>
+</head>
+<body>
+<div class="scan"></div>
+<div class="vig"></div>
+<div class="shell">
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="brand">
+    <div class="orb">◈</div>
+    <div><div class="bname">NEXUS</div><div class="bsub">CIA-GRADE GLOBAL SURVEILLANCE // OPENSKY ADS-B + TOPOJSON 195 COUNTRIES + AIS + SIGINT</div></div>
+  </div>
+  <div class="cls-badge">TS//SCI//NOFORN</div>
+  <div class="tstats">
+    <div class="ts"><div class="tsl">ZULU TIME</div><div class="tsv cv" id="clk">--:--:--</div></div>
+    <div class="ts"><div class="tsl">CIVIL A/C</div><div class="tsv gv" id="aircount">---</div></div>
+    <div class="ts"><div class="tsl">MILITARY</div><div class="tsv ov" id="milcount">---</div></div>
+    <div class="ts"><div class="tsl">VESSELS</div><div class="tsv pv" id="vslcount">---</div></div>
+    <div class="ts"><div class="tsl">US CARRIERS</div><div class="tsv ov" id="cvncount">11</div></div>
+    <div class="ts"><div class="tsl">EMERGENCIES</div><div class="tsv rv" id="emergtop">0</div></div>
+    <div class="ts"><div class="tsl">COUNTRIES</div><div class="tsv cv" id="countrycount">--</div></div>
+    <div class="ts"><div class="tsl">REFRESH</div><div class="tsv gv" id="refresh-cd">30s</div></div>
+  </div>
+  <div class="topright">
+    <div class="bdg bg2"><span class="dp"></span>OPENSKY</div>
+    <div class="bdg bg2"><span class="dp"></span>METEO</div>
+    <div class="bdg ba2"><span class="dp"></span>AIS SIM</div>
+    <div class="bdg" id="apistatus" style="color:var(--a);border:1px solid rgba(255,170,0,0.28);background:rgba(255,170,0,0.04);font-size:7px;padding:3px 8px;border-radius:2px;display:flex;align-items:center;gap:4px;">
+      <span class="dp" style="background:var(--a)"></span><span id="apitext">CONNECTING</span>
+    </div>
+  </div>
+</div>
+<!-- LEFT -->
+<div class="left">
+  <div class="pttl">SURVEILLANCE FEEDS</div>
+  <button class="fb on" onclick="sf(this,'all','#00d4ff')"><span class="fi">🌐</span><span class="fn">ALL FEEDS</span><span class="fc2" id="ftotal">---</span></button>
+  <button class="fb" onclick="sf(this,'civil','#00d4ff')"><span class="fi">✈</span><span class="fn">CIVIL AIR TRAFFIC</span><span class="fc2" id="civtotal">---</span></button>
+  <button class="fb" onclick="sf(this,'military','#ff6600')"><span class="fi">🛡</span><span class="fn">MILITARY AIRCRAFT</span><span class="fc2" id="miltotal">---</span><span class="far"></span></button>
+  <button class="fb" onclick="sf(this,'maritime','#bb66ff')"><span class="fi">⚓</span><span class="fn">MARITIME / AIS</span><span class="fc2" id="shiptotal">---</span></button>
+  <button class="fb" onclick="sf(this,'cities','#00ffcc')"><span class="fi">🏙</span><span class="fn">WORLD CITIES</span><span class="fc2" id="citytotal">295</span></button>
+  <button class="fb" onclick="sf(this,'weather','#00ff88')"><span class="fi">⛈</span><span class="fn">METEOROLOGICAL</span><span class="fc2">30 STATIONS</span></button>
+  <button class="fb" onclick="sf(this,'emergency','#ff3355')"><span class="fi">🚨</span><span class="fn">EMERGENCY SQUAWKS</span><span class="fc2" id="sqtotal">0</span><span class="far"></span></button>
+  <div class="tbox">
+    <div class="btitle">AIRSPACE CONGESTION — REGIONAL</div>
+    <div class="trow"><span class="tlbl gv">N.AMER</span><div class="ttrack"><div class="tfill" style="background:var(--g)" id="bar-na"></div></div><span class="tpct" id="pct-na">--</span></div>
+    <div class="trow"><span class="tlbl cv">EUROPE</span><div class="ttrack"><div class="tfill" style="background:var(--c)" id="bar-eu"></div></div><span class="tpct" id="pct-eu">--</span></div>
+    <div class="trow"><span class="tlbl av">ASIA-PAC</span><div class="ttrack"><div class="tfill" style="background:var(--a)" id="bar-ap"></div></div><span class="tpct" id="pct-ap">--</span></div>
+    <div class="trow"><span class="tlbl pv">MID-EAST</span><div class="ttrack"><div class="tfill" style="background:var(--p)" id="bar-me"></div></div><span class="tpct" id="pct-me">--</span></div>
+    <div class="trow"><span class="tlbl rv">OTHER</span><div class="ttrack"><div class="tfill" style="background:var(--r)" id="bar-ot"></div></div><span class="tpct" id="pct-ot">--</span></div>
+  </div>
+  <div class="sg">
+    <div class="sc"><div class="sv2 cv" id="sg-air">---</div><div class="sl">AIRBORNE</div></div>
+    <div class="sc"><div class="sv2 ov" id="sg-mil">---</div><div class="sl">MILITARY</div></div>
+    <div class="sc"><div class="sv2 pv" id="sg-vsl">---</div><div class="sl">VESSELS</div></div>
+    <div class="sc"><div class="sv2 rv" id="sg-emg">0</div><div class="sl">CRITICAL</div></div>
+  </div>
+  <div class="spkwrap">
+    <div class="sptitle">ALTITUDE DISTRIBUTION — LIVE</div>
+    <div class="spbars" id="spark"></div>
+  </div>
+  <div class="sigbox">
+    <div class="btitle">SIGINT — SPECTRUM MONITOR</div>
+    <div class="sigrow"><span class="sigfreq">121.5 MHz</span><div class="sigbar"><div class="sigfill" style="width:90%;background:var(--r)" id="sig0"></div></div><span style="font-size:6px;color:var(--r)">GUARD/EMRG</span></div>
+    <div class="sigrow"><span class="sigfreq">243.0 MHz</span><div class="sigbar"><div class="sigfill" style="width:72%;background:var(--o)" id="sig1"></div></div><span style="font-size:6px;color:var(--o)">MIL GUARD</span></div>
+    <div class="sigrow"><span class="sigfreq">1090 MHz</span><div class="sigbar"><div class="sigfill" style="width:100%;background:var(--c)" id="sig2"></div></div><span style="font-size:6px;color:var(--c)">ADS-B</span></div>
+    <div class="sigrow"><span class="sigfreq">156.8 MHz</span><div class="sigbar"><div class="sigfill" style="width:82%;background:var(--p)" id="sig3"></div></div><span style="font-size:6px;color:var(--p)">AIS VHF-16</span></div>
+  </div>
+  <div class="nodewrap">
+    <div class="nrow"><div class="ndot non"></div><span class="nname">OpenSky Network ADS-B</span><span style="font-size:6.5px;color:var(--c)" id="sky-ms">---</span></div>
+    <div class="nrow"><div class="ndot non"></div><span class="nname">Open-Meteo Weather</span><span style="font-size:6.5px;color:var(--c)" id="wx-ms">---</span></div>
+    <div class="nrow"><div class="ndot non"></div><span class="nname">AIS Maritime Sim</span><span style="font-size:6.5px;color:var(--g)">ACTIVE</span></div>
+    <div class="nrow"><div class="ndot non"></div><span class="nname">Military ICAO DB</span><span style="font-size:6.5px;color:var(--g)">18 NATIONS</span></div>
+    <div class="nrow"><div class="ndot nwrn" id="nd-dot"></div><span class="nname">TopoJSON Atlas 195</span><span style="font-size:6.5px" id="nd-atlas">LOADING</span></div>
+    <div style="font-size:6px;color:var(--t);margin-top:3px;" id="lastpull">NEVER PULLED</div>
+  </div>
+</div>
+<!-- GLOBE -->
+<div class="map">
+  <canvas id="globe"></canvas>
+  <div class="loading" id="loading">
+    <div class="lwrap"><div class="lring"></div><div class="lr2"></div></div>
+    <div class="ltxt">NEXUS v4</div>
+    <div class="lsub" id="lsub">LOADING WORLD ATLAS...</div>
+    <div class="lsteps">
+      <div class="lstep"><div class="lsdot ls-active" id="ld1"></div>TopoJSON 195 Country Borders</div>
+      <div class="lstep"><div class="lsdot ls-pend" id="ld2"></div>OpenSky Network ADS-B Feed</div>
+      <div class="lstep"><div class="lsdot ls-pend" id="ld3"></div>Open-Meteo Weather Grid</div>
+      <div class="lstep"><div class="lsdot ls-pend" id="ld4"></div>AIS Maritime + Mil Tracking</div>
+    </div>
+  </div>
+  <div class="dpop" id="dpop">
+    <div class="dpop-hdr"><div class="dpop-title" id="dp-title">---</div><div class="dpop-close" onclick="closeDpop()">✕</div></div>
+    <div class="dpop-type" id="dp-type">---</div>
+    <div id="dp-body"></div>
+  </div>
+  <div class="alert-bar" id="alert-bar"><div class="alert-inner" id="alert-inner"></div></div>
+  <div class="hud htl">
+    <div class="hrow"><span class="hk">MODE:</span><span class="hv" id="hmode">ALL FEEDS</span></div>
+    <div class="hrow"><span class="hk">SOURCE:</span><span class="hv-g">OPENSKY+METEO+AIS</span></div>
+    <div class="hrow"><span class="hk">FLIGHTS:</span><span class="hv" id="h-air">---</span></div>
+    <div class="hrow"><span class="hk">MILITARY:</span><span class="hv" style="color:var(--o)" id="h-mil">---</span></div>
+    <div class="hrow"><span class="hk">SELECTED:</span><span class="hv" id="h-sel">NONE</span></div>
+    <div class="hrow"><span class="hk">FPS:</span><span class="hv-g" id="h-fps">--</span></div>
+  </div>
+  <div class="hud htr">
+    <div class="hrow" style="justify-content:flex-end"><span class="hk">ZOOM:</span><span class="hv" id="hzoom">3.5x</span></div>
+    <div class="hrow" style="justify-content:flex-end"><span class="hk">LON:</span><span class="hv" id="h-rot">0.0°</span></div>
+    <div class="hrow" style="justify-content:flex-end"><span class="hk">LAT:</span><span class="hv" id="h-tilt">0.0°</span></div>
+    <div class="hrow" style="justify-content:flex-end"><span class="hk">EMERG:</span><span class="hv-r" id="h-emerg">0</span></div>
+    <div class="hrow" style="justify-content:flex-end"><span class="hk">VESSELS:</span><span class="hv" style="color:var(--p)" id="h-vsl">---</span></div>
+  </div>
+  <div class="hud hbl">
+    <div class="hbl-item">PROJ <b>ORTHOGRAPHIC 3D</b></div>
+    <div class="hbl-item">BORDERS <b id="h-brd">LOADING</b></div>
+    <div class="hbl-item">NAMES <b id="h-names">0</b></div>
+    <div class="hbl-item">CITIES <b id="h-cities">295</b></div>
+  </div>
+  <div class="hud hbr">
+    <div class="hrow"><span class="hk">API LAT:</span><span class="hv" id="h-lat">---</span></div>
+    <div class="hrow"><span class="hk">RECV:</span><span class="hv" id="h-recv">0</span></div>
+    <div class="hrow"><span class="hk">AVG ALT:</span><span class="hv-a" id="h-alt">---</span></div>
+  </div>
+  <div class="glb-leg">
+    <div class="ltit">TRACK KEY</div>
+    <div class="lrow"><div class="ldot" style="background:#bb66ff"></div>FL400+</div>
+    <div class="lrow"><div class="ldot" style="background:#00d4ff"></div>FL250-400</div>
+    <div class="lrow"><div class="ldot" style="background:#00ff88"></div>FL100-250</div>
+    <div class="lrow"><div class="ldot" style="background:#ffaa00"></div>&lt;FL100</div>
+    <div class="lrow"><div class="ldia" style="background:#ff6600"></div>Military</div>
+    <div class="lrow"><div class="lsq" style="background:#bb66ff"></div>Tanker</div>
+    <div class="lrow"><div class="lsq" style="background:#00ffcc"></div>Cargo</div>
+    <div class="lrow"><div class="lsq" style="background:#ff6600"></div>Mil Vessel</div>
+    <div class="lrow"><div class="ldot" style="background:#ff3355"></div>Emergency</div>
+  </div>
+  <div class="mzoom">
+    <button class="zbtn" onclick="zIn()">+</button>
+    <button class="zbtn" onclick="zOut()">−</button>
+  </div>
+  <div class="ctrl-hint">🖱 DRAG=rotate &nbsp;|&nbsp; SCROLL=zoom &nbsp;|&nbsp; CLICK=inspect target</div>
+  <div class="threat-board" id="threat-board">
+    <div class="th-title">THREAT ASSESSMENT BOARD — CLASSIFIED</div>
+    <div class="th-head"><span>FLAG</span><span>CALLSIGN</span><span>NATION</span><span>TYPE</span><span>ALT</span><span>SPD</span><span>LAST</span></div>
+    <div class="th-list" id="threat-list"></div>
+  </div>
+</div>
+<!-- RIGHT -->
+<div class="right">
+  <div class="pttl">LIVE INTELLIGENCE <span class="ptbdg" id="flistcnt">0</span></div>
+  <div class="rtabs">
+    <button class="rtab on" onclick="showRTab('flights',this)" id="rt-flights">✈ FLIGHTS</button>
+    <button class="rtab" onclick="showRTab('military',this)" id="rt-military">🛡 MIL</button>
+    <button class="rtab" onclick="showRTab('maritime',this)" id="rt-maritime">⚓ SHIPS</button>
+    <button class="rtab" onclick="showRTab('carriers',this)" id="rt-carriers">🛳 CARRIERS</button>
+  </div>
+  <div class="rpanel show" id="rp-flights">
+    <div class="fhead" style="grid-template-columns:1.2fr 0.65fr 0.85fr 0.45fr 0.35fr"><span>CALLSIGN</span><span>CTRY</span><span>ALT/SPD</span><span>HDG</span><span>▲▼</span></div>
+    <div class="flist" id="flist"></div>
+  </div>
+  <div class="rpanel" id="rp-military">
+    <div class="fhead" style="grid-template-columns:1.2fr 0.7fr 0.85fr 0.75fr"><span>CALLSIGN</span><span>NATION</span><span>ALT/SPD</span><span>ROLE</span></div>
+    <div class="flist" id="millist"></div>
+  </div>
+  <div class="rpanel" id="rp-maritime">
+    <div class="fhead" style="grid-template-columns:1.2fr 0.7fr 0.65fr 0.85fr"><span>VESSEL</span><span>TYPE</span><span>SPD/HDG</span><span>DEST LAT/LON</span></div>
+    <div class="flist" id="shiplist"></div>
+  </div>
+  <div class="rpanel" id="rp-carriers">
+    <div class="fhead" style="grid-template-columns:1.25fr 0.45fr 0.55fr 0.75fr"><span>CARRIER</span><span>CSG</span><span>THEATER</span><span>SPD/HDG</span></div>
+    <div class="flist" id="carrierlist"></div>
+  </div>
+  <div class="logpnl">
+    <div class="pttl">REAL-TIME EVENT LOG</div>
+    <div class="logscrl" id="logscrl"></div>
+  </div>
+</div>
+<!-- BOTTOM -->
+<div class="bot-l"><div class="pttl">METEOROLOGY — OPEN-METEO (30 STATIONS)</div><div class="wxgrid" id="wx"></div></div>
+<div class="bot-c"><div class="pttl">ALTITUDE HISTOGRAM — ADS-B LIVE</div><canvas id="chart"></canvas></div>
+<div class="bot-r"><div class="pttl">GLOBAL TELEMETRY</div><div style="padding:6px 8px;flex:1;display:flex;flex-direction:column;gap:3px;overflow:hidden;" id="telem"></div></div>
+<!-- STATUS BAR -->
+<div class="sbar">
+  <div class="stag">◈ NEXUS LIVE</div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">FLIGHTS:</span><span class="siv-g" id="sb-flights">---</span></div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">MIL:</span><span class="siv" style="color:var(--o)" id="sb-mil">---</span></div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">VESSELS:</span><span class="siv" style="color:var(--p)" id="sb-vsl">---</span></div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">AVG ALT:</span><span class="siv-a" id="sb-alt">---</span></div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">COUNTRIES:</span><span class="siv" id="sb-ctr">---</span></div>
+  <div class="sdiv"></div>
+  <div class="sitm"><span class="sik">EMERG:</span><span class="siv-r" id="sb-emg">0</span></div>
+  <div class="sdiv"></div>
+  <div class="ticker"><div class="tinner" id="tick"></div></div>
+</div>
+</div>
+
+<script>
+'use strict';
+// ═══════════════════════════════════════════════════════════════
+//  NEXUS WORLDVIEW v4 — HIGH-PERFORMANCE CIA GLOBE
+//  KEY PERF FIX: dual-canvas system
+//    offscreen = globe body+borders+labels → redraws only on view change
+//    main canvas = flights+vessels+arcs → every frame  
+//  195 COUNTRIES: full ISO numeric → name lookup + centroid labels
+// ═══════════════════════════════════════════════════════════════
+
+const $ = id => document.getElementById(id);
+const set = (id,v) => { const e=$(id); if(e) e.textContent=v; };
+const hasLL = obj => obj && Number.isFinite(obj.lat) && Number.isFinite(obj.lon);
+const TOPO_LIB_URLS = [
+  'https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson.min.js',
+  'https://unpkg.com/topojson-client@3/dist/topojson.min.js'
+];
+let topoLibPromise = null;
+const timeoutSignal = (ms) => {
+  if (window.AbortSignal && typeof AbortSignal.timeout === 'function') return AbortSignal.timeout(ms);
+  const ctl = new AbortController();
+  setTimeout(() => ctl.abort(), ms);
+  return ctl.signal;
+};
+async function ensureTopojsonLib(){
+  if(window.topojson && typeof topojson.feature === 'function') return true;
+  if(topoLibPromise) return topoLibPromise;
+  topoLibPromise = (async () => {
+    for(const url of TOPO_LIB_URLS){
+      try{
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          const tm = setTimeout(() => {
+            s.remove();
+            reject(new Error('timeout'));
+          }, 7000);
+          s.src = url;
+          s.async = true;
+          s.onload = () => { clearTimeout(tm); resolve(true); };
+          s.onerror = () => { clearTimeout(tm); s.remove(); reject(new Error('load failed')); };
+          document.head.appendChild(s);
+        });
+        if(window.topojson && typeof topojson.feature === 'function') return true;
+      }catch(_e){}
+    }
+    throw new Error('topojson library unavailable');
+  })();
+  return topoLibPromise;
+}
+
+// ── STATE ─────────────────────────────────────────────────────
+let civilFlights=[], milFlights=[], allFlights=[], vessels=[], wxStore={};
+let usCarriers=[], carrierEscorts=[], threatVisible=false;
+let selObj=null, activeLayer='all', glbColor='#00d4ff';
+let zoom=1.55, rotY=0.0, rotX=0.0;
+let frame=0, totalRecv=0, refreshCD=30;
+let fpsFr=0, fpsT=Date.now();
+let isDragging=false, lastMX=0, lastMY=0, velX=0, velY=0, lastTouchDist=null;
+// Dirty-flag for offscreen globe cache
+let globeDirty=true, lastRY=999, lastRX=999, lastZoom=999, lastGlbColor='';
+let countryFeatures=[], countryCentroids=[];
+let offCanvas=null, offCtx=null;
+const llWrap = lon => ((lon + 540) % 360) - 180;
+const llClamp = lat => Math.max(-80, Math.min(80, lat));
+
+// ── FULL ISO NUMERIC → COUNTRY NAME LOOKUP ────────────────────
+const ISO_NAMES = {
+  // AFRICA (54 countries)
+  12:'ALGERIA',24:'ANGOLA',204:'BENIN',72:'BOTSWANA',854:'BURKINA FASO',
+  108:'BURUNDI',120:'CAMEROON',132:'CAPE VERDE',140:'CENT. AFR. REP.',
+  148:'CHAD',174:'COMOROS',180:'D.R. CONGO',178:'CONGO',262:'DJIBOUTI',
+  818:'EGYPT',226:'EQUAT. GUINEA',232:'ERITREA',748:'ESWATINI',
+  231:'ETHIOPIA',266:'GABON',270:'GAMBIA',288:'GHANA',324:'GUINEA',
+  624:'GUINEA-BISSAU',404:'KENYA',426:'LESOTHO',430:'LIBERIA',434:'LIBYA',
+  450:'MADAGASCAR',454:'MALAWI',466:'MALI',478:'MAURITANIA',480:'MAURITIUS',
+  504:'MOROCCO',508:'MOZAMBIQUE',516:'NAMIBIA',562:'NIGER',566:'NIGERIA',
+  646:'RWANDA',678:'SAO TOME',686:'SENEGAL',690:'SEYCHELLES',
+  694:'SIERRA LEONE',706:'SOMALIA',710:'SOUTH AFRICA',728:'SOUTH SUDAN',
+  729:'SUDAN',768:'TOGO',788:'TUNISIA',800:'UGANDA',834:'TANZANIA',
+  894:'ZAMBIA',716:'ZIMBABWE',175:'MAYOTTE',638:'REUNION',
+  // ASIA (48 countries + territories)
+  4:'AFGHANISTAN',50:'BANGLADESH',64:'BHUTAN',96:'BRUNEI',116:'CAMBODIA',
+  156:'CHINA',356:'INDIA',360:'INDONESIA',364:'IRAN',368:'IRAQ',
+  376:'ISRAEL',392:'JAPAN',400:'JORDAN',398:'KAZAKHSTAN',408:'N. KOREA',
+  410:'S. KOREA',417:'KYRGYZSTAN',418:'LAOS',422:'LEBANON',458:'MALAYSIA',
+  462:'MALDIVES',496:'MONGOLIA',104:'MYANMAR',524:'NEPAL',512:'OMAN',
+  586:'PAKISTAN',275:'PALESTINE',608:'PHILIPPINES',634:'QATAR',
+  682:'SAUDI ARABIA',702:'SINGAPORE',144:'SRI LANKA',760:'SYRIA',
+  762:'TAJIKISTAN',764:'THAILAND',626:'TIMOR-LESTE',792:'TURKEY',
+  795:'TURKMENISTAN',784:'U.A.E.',860:'UZBEKISTAN',704:'VIETNAM',
+  887:'YEMEN',344:'HONG KONG',446:'MACAO',158:'TAIWAN',
+  414:'KUWAIT',48:'BAHRAIN',
+  // EUROPE (44 countries)
+  8:'ALBANIA',20:'ANDORRA',51:'ARMENIA',40:'AUSTRIA',31:'AZERBAIJAN',
+  112:'BELARUS',56:'BELGIUM',70:'BOSNIA & HERZ.',100:'BULGARIA',
+  191:'CROATIA',196:'CYPRUS',203:'CZECHIA',208:'DENMARK',233:'ESTONIA',
+  246:'FINLAND',250:'FRANCE',268:'GEORGIA',276:'GERMANY',300:'GREECE',
+  348:'HUNGARY',352:'ICELAND',372:'IRELAND',380:'ITALY',428:'LATVIA',
+  438:'LIECHTENSTEIN',440:'LITHUANIA',442:'LUXEMBOURG',470:'MALTA',
+  492:'MONACO',499:'MONTENEGRO',528:'NETHERLANDS',807:'N. MACEDONIA',
+  578:'NORWAY',616:'POLAND',620:'PORTUGAL',642:'ROMANIA',643:'RUSSIA',
+  674:'SAN MARINO',688:'SERBIA',703:'SLOVAKIA',705:'SLOVENIA',
+  724:'SPAIN',752:'SWEDEN',756:'SWITZERLAND',804:'UKRAINE',
+  826:'UNITED KINGDOM',336:'VATICAN',234:'FAROE IS.',
+  // NORTH AMERICA
+  124:'CANADA',484:'MEXICO',840:'UNITED STATES',
+  // CENTRAL AMERICA
+  84:'BELIZE',188:'COSTA RICA',222:'EL SALVADOR',320:'GUATEMALA',
+  340:'HONDURAS',558:'NICARAGUA',591:'PANAMA',
+  // CARIBBEAN
+  28:'ANTIGUA & BARBUDA',44:'BAHAMAS',52:'BARBADOS',192:'CUBA',
+  212:'DOMINICA',214:'DOMINICAN REP.',308:'GRENADA',332:'HAITI',
+  388:'JAMAICA',659:'ST. KITTS & NEVIS',662:'ST. LUCIA',
+  670:'ST. VINCENT',780:'TRINIDAD & TOBAGO',
+  // SOUTH AMERICA
+  32:'ARGENTINA',68:'BOLIVIA',76:'BRAZIL',152:'CHILE',170:'COLOMBIA',
+  218:'ECUADOR',328:'GUYANA',600:'PARAGUAY',604:'PERU',
+  740:'SURINAME',858:'URUGUAY',862:'VENEZUELA',
+  // OCEANIA / AUSTRALIA / PACIFIC ISLANDS
+  36:'AUSTRALIA',242:'FIJI',296:'KIRIBATI',584:'MARSHALL IS.',
+  583:'MICRONESIA',520:'NAURU',554:'NEW ZEALAND',585:'PALAU',
+  598:'PAPUA NEW GUINEA',882:'SAMOA',90:'SOLOMON IS.',
+  776:'TONGA',798:'TUVALU',548:'VANUATU',
+  // TERRITORIES / DEPENDENCIES
+  304:'GREENLAND',630:'PUERTO RICO',316:'GUAM',850:'US VIRGIN IS.',
+  531:'CURACAO',533:'ARUBA',540:'NEW CALEDONIA',258:'FR. POLYNESIA',
+  312:'GUADELOUPE',474:'MARTINIQUE',260:'FRENCH S. TERR.',
+  238:'FALKLAND IS.',239:'S. GEORGIA',654:'ST. HELENA',
+  535:'BONAIRE',534:'ST. MAARTEN',652:'ST. BARTHELEMY',
+  136:'CAYMAN IS.',92:'BR. VIRGIN IS.',660:'ANGUILLA',
+  796:'TURKS & CAICOS',772:'TOKELAU',570:'NIUE',
+  612:'PITCAIRN IS.',876:'WALLIS & FUTUNA',574:'HEARD IS.',
+};
+const TERRITORY_IDS = new Set([
+  304,630,316,850,531,533,540,258,312,474,638,175,260,
+  238,239,654,535,534,652,136,92,660,796,772,570,612,876,574,344,446
+]);
+const ALWAYS_SHOW_IDS = new Set([
+  462,520,798,674,492,438,336,659,296,776,585,583,548,
+  242,882,90,584,798,132,174,480,690,44,52,308,212,670,659,28
+]);
+
+// ── 3D MATH (fast, no obj creation) ───────────────────────────
+let _vx=0,_vy=0,_vz=0,_px=0,_py=0,_pvis=false;
+function ll3dInPlace(lat,lon,R){
+  const phi=(90-lat)*Math.PI/180, theta=(lon+180)*Math.PI/180;
+  const sinP=Math.sin(phi);
+  _vx=R*sinP*Math.cos(theta); _vy=R*Math.cos(phi); _vz=R*sinP*Math.sin(theta);
+}
+// Pre-computed trig for current view
+let _cY=1,_sY=0,_cX=1,_sX=0;
+function updateViewTrig(){
+  _cY=Math.cos(rotY);_sY=Math.sin(rotY);_cX=Math.cos(rotX);_sX=Math.sin(rotX);
+}
+function projectInPlace(x,y,z,cx,cy,R){
+  const rx=x*_cY+z*_sY, rz0=-x*_sY+z*_cY;
+  const ry=y*_cX-rz0*_sX, rz=y*_sX+rz0*_cX;
+  if(rz<-R*0.42){_pvis=false;return;}
+  const sc=R/(R+rz*0.26);
+  _px=cx+rx*sc; _py=cy-ry*sc; _pvis=rz>-R*0.42;
+}
+
+// ── CLOCK ─────────────────────────────────────────────────────
+function tickClock(){const n=new Date(),p=v=>String(v).padStart(2,'0');set('clk',`${p(n.getUTCHours())}:${p(n.getUTCMinutes())}:${p(n.getUTCSeconds())} UTC`);}
+setInterval(tickClock,1000);tickClock();
+
+// ── SIGINT NOISE ──────────────────────────────────────────────
+const sigBase=[90,72,100,80];
+setInterval(()=>['sig0','sig1','sig2','sig3'].forEach((id,i)=>{const e=$(id);if(e)e.style.width=Math.max(8,Math.min(100,sigBase[i]+(Math.random()-.5)*16))+'%';}),650);
+
+// ── REFRESH ───────────────────────────────────────────────────
+setInterval(()=>{if(refreshCD>0){refreshCD--;set('refresh-cd',refreshCD+'s');if(refreshCD===0)fetchFlights();}},1000);
+
+// ── UI ────────────────────────────────────────────────────────
+function sf(btn,layer,col){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); activeLayer=layer; glbColor=col||'#00d4ff';
+  set('hmode',btn.querySelector('.fn').textContent.trim().toUpperCase());
+  globeDirty=true;
+}
+function zIn(){zoom=Math.min(zoom*1.14,8.0);updateZHUD();globeDirty=true;}
+function zOut(){zoom=Math.max(zoom/1.14,0.18);updateZHUD();globeDirty=true;}
+function updateZHUD(){set('hzoom',(zoom*2.25).toFixed(1)+'x');}
+function showRTab(name,btn){
+  ['flights','military','maritime','carriers'].forEach(t=>{const p=$('rp-'+t),b=$('rt-'+t);if(p)p.className='rpanel'+(t===name?' show':'');if(b)b.className='rtab'+(t===name?' on':'');});
+}
+updateZHUD();
+
+// ── LOG ───────────────────────────────────────────────────────
+const logEl=$('logscrl');
+function addLog(src,msg,cls='info'){
+  const n=new Date(),p=v=>String(v).padStart(2,'0');
+  const t=`${p(n.getUTCHours())}:${p(n.getUTCMinutes())}:${p(n.getUTCSeconds())}`;
+  const d=document.createElement('div');d.className='lline';
+  d.innerHTML=`<span class="ltime">${t}</span><span class="lsrc ${cls}">[${src}]</span><span class="lmsg ${cls}">${msg}</span>`;
+  logEl.appendChild(d);logEl.scrollTop=logEl.scrollHeight;
+  if(logEl.children.length>70)logEl.removeChild(logEl.children[0]);
+}
+
+// ── MILITARY ICAO ─────────────────────────────────────────────
+const milRanges=[
+  {lo:0xAE0000,hi:0xAFFFFF,nation:'USA',flag:'🇺🇸',role:'USAF/USN'},
+  {lo:0x43C000,hi:0x43FFFF,nation:'UK',flag:'🇬🇧',role:'RAF'},
+  {lo:0x3B0000,hi:0x3BFFFF,nation:'FRANCE',flag:'🇫🇷',role:'ARMEE AIR'},
+  {lo:0x3C4000,hi:0x3CFFFF,nation:'GERMANY',flag:'🇩🇪',role:'LUFTWAFFE'},
+  {lo:0x100000,hi:0x1FFFFF,nation:'RUSSIA',flag:'🇷🇺',role:'VKS'},
+  {lo:0x780000,hi:0x7BFFFF,nation:'CHINA',flag:'🇨🇳',role:'PLAAF'},
+  {lo:0x710000,hi:0x717FFF,nation:'INDIA',flag:'🇮🇳',role:'IAF'},
+  {lo:0x898000,hi:0x8FFFFF,nation:'TURKEY',flag:'🇹🇷',role:'TUAF'},
+  {lo:0x896000,hi:0x897FFF,nation:'ISRAEL',flag:'🇮🇱',role:'IAF'},
+  {lo:0x738000,hi:0x73FFFF,nation:'PAKISTAN',flag:'🇵🇰',role:'PAF'},
+  {lo:0x010000,hi:0x017FFF,nation:'NATO',flag:'🔵',role:'NATO'},
+  {lo:0x897000,hi:0x8973FF,nation:'SAUDI',flag:'🇸🇦',role:'RSAF'},
+  {lo:0x4B8000,hi:0x4BFFFF,nation:'ITALY',flag:'🇮🇹',role:'AMI'},
+  {lo:0x500000,hi:0x5003FF,nation:'JAPAN',flag:'🇯🇵',role:'JASDF'},
+  {lo:0x7C0000,hi:0x7FFFFF,nation:'AUSTRALIA',flag:'🇦🇺',role:'RAAF'},
+  {lo:0x000000,hi:0x000FFF,nation:'CIVIL MULTI',flag:'🌐',role:'MULTI'},
+  {lo:0xE40000,hi:0xE4FFFF,nation:'SOUTH KOREA',flag:'🇰🇷',role:'ROKAF'},
+  {lo:0xA10000,hi:0xA1FFFF,nation:'CANADA',flag:'🇨🇦',role:'RCAF'},
+];
+const milCS=['RCH','CNV','DUKE','REACH','USAF','NAVY','ARMY','GHOST','SWORD','HAWK','VIPER','TALON','EAGLE','RAVEN','ATLAS','FURY','COBRA','RAPTOR','SHADOW','STORM','REAPER','ZEUS','BARON','TOPGUN','STEEL','IRON','LANCE','NOBLE','MAGIC','DARKSTAR','PEGASUS','TITAN','GIANT','JOLLY','PEDRO','ANGEL','DUSTOFF','PAVE','RQ'];
+function detectMil(icao){const h=parseInt(icao,16);return milRanges.find(r=>h>=r.lo&&h<=r.hi)||null;}
+function isMilCS(cs){return milCS.some(p=>cs&&cs.toUpperCase().startsWith(p));}
+function classifyMilType(f){
+  const cs=(f.cs||'').toUpperCase();
+  if(cs.startsWith('RCH')||cs.startsWith('REACH')) return 'STRATEGIC AIRLIFT C-17/C-5';
+  if(cs.startsWith('CNV')) return 'CARRIER ONBOARD DELIVERY';
+  if(cs.startsWith('DUKE')) return 'VIP/EXEC TRANSPORT';
+  if(cs.startsWith('REAPER')||cs.startsWith('RQ')) return 'MQ-9 REAPER (UAV)';
+  if(f.spd>800) return 'FIGHTER/INTERCEPT';
+  if(f.alt>60000) return 'SR/U2 ISR';
+  if(f.spd<200&&f.alt<5000) return 'HELO/SPEC OPS';
+  return 'TACTICAL SUPPORT';
+}
+function milTrackColor(nation){
+  if(nation==='USA')return '#ff6600';
+  if(nation==='RUSSIA')return '#ff3355';
+  if(nation==='CHINA')return '#ff0044';
+  if(nation==='NATO')return '#0088ff';
+  return '#ffaa00';
+}
+
+// ── VESSELS ───────────────────────────────────────────────────
+const SHIP_DEFS=[
+  {mmsi:'235000001',name:'PACIFIC CROWN',type:'VLCC OIL',flag:'🇬🇧',dwt:318000,spd:14,color:'#bb66ff',isMil:false,route:[[25.2,55.3],[12,44],[0,43],[-10,38],[-34,-18]]},
+  {mmsi:'477000003',name:'GREAT FORTUNE',type:'VLCC OIL',flag:'🇨🇳',dwt:299000,spd:15,color:'#bb66ff',isMil:false,route:[[26,56.5],[1.3,103.8],[22.3,114.2],[35.7,139.7]]},
+  {mmsi:'636000002',name:'OCEAN KNIGHT',type:'SUEZMAX',flag:'🇱🇷',dwt:157000,spd:13,color:'#bb66ff',isMil:false,route:[[26,56],[22,60],[12,45],[3,42]]},
+  {mmsi:'255000004',name:'LUSITANIA MAX',type:'AFRAMAX',flag:'🇵🇹',dwt:115000,spd:12,color:'#bb66ff',isMil:false,route:[[36,-5],[43,-8],[48.5,-4.5],[51.5,-0.1]]},
+  {mmsi:'574000009',name:'SAIGON BRIDGE',type:'CONTAINER',flag:'🇻🇳',dwt:142000,spd:20,color:'#00ffcc',isMil:false,route:[[10.8,106.7],[1.3,103.8],[22.3,114.2],[35.7,139.7]]},
+  {mmsi:'538000010',name:'MARSHALL EAGLE',type:'BULK CARRIER',flag:'🇲🇭',dwt:81000,spd:14,color:'#00ffcc',isMil:false,route:[[40.7,-74],[25,-78],[5,-60],[-5,-35]]},
+  {mmsi:'416000011',name:'TAIPEI TRADER',type:'CONTAINER',flag:'🇹🇼',dwt:170000,spd:21,color:'#00ffcc',isMil:false,route:[[25,121.5],[22.3,114.2],[1.3,103.8],[-33.9,151.2]]},
+  {mmsi:'304000012',name:'ANTIGUA SPIRIT',type:'BULK CARRIER',flag:'🇦🇬',dwt:92000,spd:15,color:'#00ffcc',isMil:false,route:[[51.5,-0.1],[43,-8],[36,-5],[35.9,14.5]]},
+  {mmsi:'657000006',name:'KENYA PRIDE',type:'CRUDE TANKER',flag:'🇰🇪',dwt:245000,spd:13,color:'#bb66ff',isMil:false,route:[[-4,39.7],[-20,36],[-34,26],[-34,18]]},
+  {mmsi:'338000100',name:'USS GERALD FORD',type:'CVN CARRIER',flag:'🇺🇸',dwt:100000,spd:30,color:'#ff6600',isMil:true,route:[[36.8,10.2],[37.5,12.5],[38.5,15],[40,18]]},
+  {mmsi:'338000101',name:'USS ARLEIGH BURKE',type:'DDG DESTROYER',flag:'🇺🇸',dwt:9200,spd:32,color:'#ff6600',isMil:true,route:[[36.9,10.3],[37.6,12.6],[38.6,15.1],[39,18]]},
+  {mmsi:'232000200',name:'HMS QUEEN ELIZABETH',type:'CVF CARRIER',flag:'🇬🇧',dwt:65000,spd:25,color:'#ff6600',isMil:true,route:[[51.5,-0.1],[49.5,-4.5],[48,-7],[45,-10]]},
+  {mmsi:'003160107',name:'ADM KUZNETSOV',type:'CV CARRIER RU',flag:'🇷🇺',dwt:55000,spd:18,color:'#ff6600',isMil:true,route:[[68,33],[67,20],[65,5],[60,0]]},
+  {mmsi:'412000001',name:'LIAONING CV-16',type:'CV CARRIER CN',flag:'🇨🇳',dwt:60000,spd:25,color:'#ff6600',isMil:true,route:[[22.3,114.2],[25,122],[30,127],[38,121]]},
+  {mmsi:'311000005',name:'BAHAMAS STAR',type:'PRODUCT TANKER',flag:'🇧🇸',dwt:75000,spd:14,color:'#bb66ff',isMil:false,route:[[25.8,-80],[20,-70],[10,-62],[8,-55]]},
+];
+vessels=SHIP_DEFS.map(s=>{
+  const prog=Math.random(),ri=Math.floor(prog*(s.route.length-1));
+  const frac=prog*(s.route.length-1)-ri;
+  const p1=s.route[ri],p2=s.route[Math.min(ri+1,s.route.length-1)];
+  return{...s,lat:p1[0]+(p2[0]-p1[0])*frac,lon:p1[1]+(p2[1]-p1[1])*frac,routeIdx:ri,routeFrac:frac,vspd:s.spd+(Math.random()-.5)*2,hdg:0,trail:[]};
+});
+function updateVessels(){
+  const dt=0.000055;
+  vessels.forEach(v=>{
+    const def=SHIP_DEFS.find(s=>s.mmsi===v.mmsi);if(!def)return;
+    v.routeFrac+=dt*v.vspd;
+    if(v.routeFrac>=1){v.routeIdx=(v.routeIdx+1)%Math.max(def.route.length-1,1);v.routeFrac=0;}
+    const p1=def.route[v.routeIdx],p2=def.route[Math.min(v.routeIdx+1,def.route.length-1)];
+    v.lat=p1[0]+(p2[0]-p1[0])*v.routeFrac;v.lon=p1[1]+(p2[1]-p1[1])*v.routeFrac;
+    v.hdg=Math.round((Math.atan2(p2[1]-p1[1],p2[0]-p1[0])*180/Math.PI+360)%360);
+    v.trail.push({lat:v.lat,lon:v.lon});if(v.trail.length>35)v.trail.shift();
+  });
+}
+
+// ── US CARRIER STRIKE GROUPS (SIM) ────────────────────────────
+const CSG_DEFS=[
+  {mmsi:'338010001',name:'USS GERALD R. FORD (CVN-78)',csg:'CSG-12',lat:36.5,lon:14.2,theater:'MEDITERRANEAN'},
+  {mmsi:'338010002',name:'USS HARRY S. TRUMAN (CVN-75)',csg:'CSG-8',lat:24.5,lon:58.5,theater:'PERSIAN GULF'},
+  {mmsi:'338010003',name:'USS DWIGHT D. EISENHOWER (CVN-69)',csg:'CSG-10',lat:14.2,lon:43.5,theater:'RED SEA'},
+  {mmsi:'338010004',name:'USS CARL VINSON (CVN-70)',csg:'CSG-1',lat:21.0,lon:120.0,theater:'W. PACIFIC'},
+  {mmsi:'338010005',name:'USS THEODORE ROOSEVELT (CVN-71)',csg:'CSG-9',lat:13.5,lon:145.5,theater:'GUAM/PACIFIC'},
+  {mmsi:'338010006',name:'USS RONALD REAGAN (CVN-76)',csg:'CSG-5',lat:35.4,lon:139.6,theater:'JAPAN/YOKOSUKA'},
+  {mmsi:'338010007',name:'USS JOHN C. STENNIS (CVN-74)',csg:'CSG-3',lat:32.7,lon:-117.2,theater:'SAN DIEGO'},
+  {mmsi:'338010008',name:'USS ABRAHAM LINCOLN (CVN-72)',csg:'CSG-12',lat:47.6,lon:-122.3,theater:'BREMERTON'},
+  {mmsi:'338010009',name:'USS GEORGE WASHINGTON (CVN-73)',csg:'CSG-7',lat:-23.0,lon:150.0,theater:'AUSTRALIA'},
+  {mmsi:'338010010',name:'USS NIMITZ (CVN-68)',csg:'CSG-11',lat:37.8,lon:-122.5,theater:'TRANSIT PACIFIC'},
+  {mmsi:'338010011',name:'USS GEORGE H.W. BUSH (CVN-77)',csg:'CSG-2',lat:36.9,lon:-76.3,theater:'NORFOLK VA'},
+];
+function initCarriers(){
+  usCarriers=CSG_DEFS.map((c,i)=>({
+    ...c,type:'USN CARRIER SIM',isCarrier:true,color:'#ff6600',
+    vspd:19+Math.random()*7,hdg:(i*31)%360,lastLat:c.lat,lastLon:c.lon,trail:[],pulseOffset:Math.random()*180
+  }));
+  carrierEscorts=[];
+  usCarriers.forEach((c,idx)=>{
+    const base=idx*3;
+    carrierEscorts.push(
+      {mmsi:`${c.mmsi}-D1`,host:c.mmsi,name:`${c.csg} DDG-1`,kind:'DDG',csg:c.csg,theater:c.theater,type:'DDG ESCORT',color:'#ff6600',dist:0.42+Math.random()*0.18,ang:Math.random()*6.283,hdg:c.hdg},
+      {mmsi:`${c.mmsi}-D2`,host:c.mmsi,name:`${c.csg} DDG-2`,kind:'DDG',csg:c.csg,theater:c.theater,type:'DDG ESCORT',color:'#ff6600',dist:0.5+Math.random()*0.25,ang:Math.random()*6.283,hdg:c.hdg},
+      {mmsi:`${c.mmsi}-S1`,host:c.mmsi,name:`${c.csg} SSN CLASSIFIED`,kind:'SSN',csg:c.csg,theater:c.theater,type:'SSN CLASSIFIED',color:'#bb66ff',dist:0.55+Math.random()*0.25,ang:Math.random()*6.283,hdg:c.hdg}
+    );
+  });
+}
+function updateCarriers(){
+  usCarriers.forEach(c=>{
+    c.lastLat=c.lat;c.lastLon=c.lon;
+    c.lat=llClamp(c.lat+(Math.random()-0.5)*0.001);
+    c.lon=llWrap(c.lon+(Math.random()-0.5)*0.001);
+    const dlat=c.lat-c.lastLat,dlon=c.lon-c.lastLon;
+    if(Math.abs(dlat)+Math.abs(dlon)>1e-8)c.hdg=Math.round((Math.atan2(dlon,dlat)*180/Math.PI+360)%360);
+    c.trail.push({lat:c.lat,lon:c.lon});
+    if(c.trail.length>26)c.trail.shift();
+  });
+  carrierEscorts.forEach(e=>{
+    const h=usCarriers.find(c=>c.mmsi===e.host);if(!h)return;
+    e.ang+=(Math.random()-0.5)*0.02;
+    const jitter=(Math.random()-0.5)*0.06;
+    e.lat=llClamp(h.lat+Math.sin(e.ang)*(e.dist+jitter));
+    e.lon=llWrap(h.lon+Math.cos(e.ang)*(e.dist+jitter));
+    e.hdg=h.hdg;e.vspd=h.vspd;
+  });
+}
+
+// ── WEATHER ───────────────────────────────────────────────────
+const WORLD_CITIES = [
+  // MIDDLE EAST
+  {name:'TEHRAN',country:'IRAN',lat:35.69,lon:51.39,pop:9.5,capital:true},
+  {name:'BAGHDAD',country:'IRAQ',lat:33.34,lon:44.40,pop:8.1,capital:true},
+  {name:'RIYADH',country:'SAUDI ARABIA',lat:24.69,lon:46.72,pop:7.5,capital:true},
+  {name:'DUBAI',country:'UAE',lat:25.20,lon:55.27,pop:3.3,capital:false},
+  {name:'ABU DHABI',country:'UAE',lat:24.47,lon:54.37,pop:1.5,capital:true},
+  {name:'DOHA',country:'QATAR',lat:25.29,lon:51.53,pop:1.0,capital:true},
+  {name:'KUWAIT CITY',country:'KUWAIT',lat:29.37,lon:47.98,pop:2.4,capital:true},
+  {name:'MANAMA',country:'BAHRAIN',lat:26.22,lon:50.59,pop:0.6,capital:true},
+  {name:'MUSCAT',country:'OMAN',lat:23.61,lon:58.59,pop:1.4,capital:true},
+  {name:'SANAA',country:'YEMEN',lat:15.35,lon:44.21,pop:3.0,capital:true},
+  {name:'AMMAN',country:'JORDAN',lat:31.95,lon:35.93,pop:4.3,capital:true},
+  {name:'BEIRUT',country:'LEBANON',lat:33.89,lon:35.50,pop:2.4,capital:true},
+  {name:'DAMASCUS',country:'SYRIA',lat:33.51,lon:36.29,pop:2.5,capital:true},
+  {name:'JERUSALEM',country:'ISRAEL',lat:31.77,lon:35.22,pop:1.0,capital:true},
+  {name:'TEL AVIV',country:'ISRAEL',lat:32.07,lon:34.78,pop:4.3,capital:false},
+  {name:'ANKARA',country:'TURKEY',lat:39.93,lon:32.86,pop:5.7,capital:true},
+  {name:'ISTANBUL',country:'TURKEY',lat:41.01,lon:28.97,pop:15.2,capital:false},
+  {name:'NICOSIA',country:'CYPRUS',lat:35.17,lon:33.37,pop:0.3,capital:true},
+  // ASIA
+  {name:'BEIJING',country:'CHINA',lat:39.91,lon:116.39,pop:21.5,capital:true},
+  {name:'SHANGHAI',country:'CHINA',lat:31.22,lon:121.47,pop:26.3,capital:false},
+  {name:'HONG KONG',country:'CHINA',lat:22.32,lon:114.17,pop:7.5,capital:false},
+  {name:'NEW DELHI',country:'INDIA',lat:28.61,lon:77.20,pop:32.9,capital:true},
+  {name:'MUMBAI',country:'INDIA',lat:19.08,lon:72.88,pop:20.7,capital:false},
+  {name:'KOLKATA',country:'INDIA',lat:22.57,lon:88.36,pop:14.9,capital:false},
+  {name:'BANGALORE',country:'INDIA',lat:12.97,lon:77.59,pop:12.3,capital:false},
+  {name:'TOKYO',country:'JAPAN',lat:35.68,lon:139.69,pop:37.4,capital:true},
+  {name:'OSAKA',country:'JAPAN',lat:34.69,lon:135.50,pop:19.2,capital:false},
+  {name:'SEOUL',country:'S. KOREA',lat:37.57,lon:126.98,pop:9.9,capital:true},
+  {name:'PYONGYANG',country:'N. KOREA',lat:39.03,lon:125.75,pop:3.0,capital:true},
+  {name:'TAIPEI',country:'TAIWAN',lat:25.04,lon:121.56,pop:2.7,capital:true},
+  {name:'BANGKOK',country:'THAILAND',lat:13.75,lon:100.52,pop:10.7,capital:true},
+  {name:'HANOI',country:'VIETNAM',lat:21.03,lon:105.85,pop:8.1,capital:true},
+  {name:'HO CHI MINH',country:'VIETNAM',lat:10.82,lon:106.63,pop:9.0,capital:false},
+  {name:'JAKARTA',country:'INDONESIA',lat:-6.21,lon:106.85,pop:10.6,capital:true},
+  {name:'MANILA',country:'PHILIPPINES',lat:14.60,lon:120.98,pop:13.9,capital:true},
+  {name:'KUALA LUMPUR',country:'MALAYSIA',lat:3.14,lon:101.69,pop:8.4,capital:true},
+  {name:'SINGAPORE',country:'SINGAPORE',lat:1.29,lon:103.85,pop:5.8,capital:true},
+  {name:'DHAKA',country:'BANGLADESH',lat:23.71,lon:90.41,pop:21.7,capital:true},
+  {name:'ISLAMABAD',country:'PAKISTAN',lat:33.72,lon:73.06,pop:1.1,capital:true},
+  {name:'KARACHI',country:'PAKISTAN',lat:24.86,lon:67.01,pop:16.1,capital:false},
+  {name:'LAHORE',country:'PAKISTAN',lat:31.55,lon:74.34,pop:13.1,capital:false},
+  {name:'KABUL',country:'AFGHANISTAN',lat:34.53,lon:69.17,pop:4.6,capital:true},
+  {name:'KATHMANDU',country:'NEPAL',lat:27.72,lon:85.32,pop:1.4,capital:true},
+  {name:'COLOMBO',country:'SRI LANKA',lat:6.92,lon:79.86,pop:0.75,capital:true},
+  {name:'THIMPHU',country:'BHUTAN',lat:27.47,lon:89.64,pop:0.11,capital:true},
+  {name:'MALE',country:'MALDIVES',lat:4.18,lon:73.51,pop:0.21,capital:true},
+  {name:'DILI',country:'TIMOR-LESTE',lat:-8.56,lon:125.58,pop:0.28,capital:true},
+  {name:'BANDAR SERI',country:'BRUNEI',lat:4.94,lon:114.95,pop:0.28,capital:true},
+  {name:'PHNOM PENH',country:'CAMBODIA',lat:11.56,lon:104.92,pop:2.3,capital:true},
+  {name:'VIENTIANE',country:'LAOS',lat:17.97,lon:102.60,pop:0.95,capital:true},
+  {name:'NAYPYIDAW',country:'MYANMAR',lat:19.73,lon:96.13,pop:0.92,capital:true},
+  {name:'ULAANBAATAR',country:'MONGOLIA',lat:47.90,lon:106.92,pop:1.5,capital:true},
+  {name:'DUSHANBE',country:'TAJIKISTAN',lat:38.56,lon:68.77,pop:0.9,capital:true},
+  {name:'TASHKENT',country:'UZBEKISTAN',lat:41.30,lon:69.24,pop:2.6,capital:true},
+  {name:'ASHGABAT',country:'TURKMENISTAN',lat:37.96,lon:58.33,pop:0.81,capital:true},
+  {name:'BISHKEK',country:'KYRGYZSTAN',lat:42.87,lon:74.59,pop:1.0,capital:true},
+  {name:'ASTANA',country:'KAZAKHSTAN',lat:51.18,lon:71.45,pop:1.2,capital:true},
+  {name:'YEREVAN',country:'ARMENIA',lat:40.18,lon:44.51,pop:1.1,capital:true},
+  {name:'BAKU',country:'AZERBAIJAN',lat:40.41,lon:49.87,pop:2.3,capital:true},
+  {name:'TBILISI',country:'GEORGIA',lat:41.69,lon:44.83,pop:1.2,capital:true},
+  // AFRICA
+  {name:'CAIRO',country:'EGYPT',lat:30.06,lon:31.24,pop:21.3,capital:true},
+  {name:'LAGOS',country:'NIGERIA',lat:6.52,lon:3.38,pop:14.8,capital:false},
+  {name:'ABUJA',country:'NIGERIA',lat:9.07,lon:7.40,pop:3.6,capital:true},
+  {name:'KINSHASA',country:'D.R. CONGO',lat:-4.32,lon:15.32,pop:15.6,capital:true},
+  {name:'JOHANNESBURG',country:'SOUTH AFRICA',lat:-26.20,lon:28.04,pop:5.9,capital:false},
+  {name:'CAPE TOWN',country:'SOUTH AFRICA',lat:-33.93,lon:18.42,pop:4.6,capital:false},
+  {name:'PRETORIA',country:'SOUTH AFRICA',lat:-25.74,lon:28.19,pop:2.9,capital:true},
+  {name:'NAIROBI',country:'KENYA',lat:-1.29,lon:36.82,pop:4.9,capital:true},
+  {name:'ADDIS ABABA',country:'ETHIOPIA',lat:9.03,lon:38.74,pop:5.0,capital:true},
+  {name:'DAR ES SALAAM',country:'TANZANIA',lat:-6.79,lon:39.20,pop:7.4,capital:false},
+  {name:'DODOMA',country:'TANZANIA',lat:-6.17,lon:35.74,pop:0.41,capital:true},
+  {name:'ACCRA',country:'GHANA',lat:5.56,lon:-0.20,pop:3.6,capital:true},
+  {name:'DAKAR',country:'SENEGAL',lat:14.71,lon:-17.47,pop:3.7,capital:true},
+  {name:'ABIDJAN',country:'COTE DIVOIRE',lat:5.35,lon:-4.01,pop:5.3,capital:false},
+  {name:'YAMOUSSOUKRO',country:'COTE DIVOIRE',lat:6.82,lon:-5.28,pop:0.36,capital:true},
+  {name:'KHARTOUM',country:'SUDAN',lat:15.55,lon:32.53,pop:6.2,capital:true},
+  {name:'JUBA',country:'SOUTH SUDAN',lat:4.85,lon:31.58,pop:0.37,capital:true},
+  {name:'ALGIERS',country:'ALGERIA',lat:36.74,lon:3.06,pop:3.4,capital:true},
+  {name:'CASABLANCA',country:'MOROCCO',lat:33.59,lon:-7.62,pop:3.8,capital:false},
+  {name:'RABAT',country:'MOROCCO',lat:34.02,lon:-6.83,pop:0.58,capital:true},
+  {name:'TRIPOLI',country:'LIBYA',lat:32.90,lon:13.18,pop:1.2,capital:true},
+  {name:'TUNIS',country:'TUNISIA',lat:36.82,lon:10.17,pop:0.70,capital:true},
+  {name:'KAMPALA',country:'UGANDA',lat:0.32,lon:32.58,pop:3.6,capital:true},
+  {name:'KIGALI',country:'RWANDA',lat:-1.95,lon:30.06,pop:1.2,capital:true},
+  {name:'HARARE',country:'ZIMBABWE',lat:-17.83,lon:31.05,pop:1.5,capital:true},
+  {name:'LUSAKA',country:'ZAMBIA',lat:-15.41,lon:28.28,pop:2.9,capital:true},
+  {name:'MAPUTO',country:'MOZAMBIQUE',lat:-25.97,lon:32.59,pop:1.1,capital:true},
+  {name:'LUANDA',country:'ANGOLA',lat:-8.84,lon:13.23,pop:8.3,capital:true},
+  {name:'LIBREVILLE',country:'GABON',lat:0.39,lon:9.45,pop:0.81,capital:true},
+  {name:'BRAZZAVILLE',country:'CONGO',lat:-4.27,lon:15.28,pop:2.0,capital:true},
+  {name:'YAOUNDE',country:'CAMEROON',lat:3.86,lon:11.52,pop:4.1,capital:true},
+  {name:'DOUALA',country:'CAMEROON',lat:4.05,lon:9.70,pop:3.9,capital:false},
+  {name:'BAMAKO',country:'MALI',lat:12.65,lon:-8.00,pop:2.7,capital:true},
+  {name:'NIAMEY',country:'NIGER',lat:13.51,lon:2.12,pop:1.3,capital:true},
+  {name:'NDJAMENA',country:'CHAD',lat:12.10,lon:15.04,pop:1.6,capital:true},
+  {name:'OUAGADOUGOU',country:'BURKINA FASO',lat:12.37,lon:-1.53,pop:3.1,capital:true},
+  {name:'LOME',country:'TOGO',lat:6.14,lon:1.22,pop:1.8,capital:true},
+  {name:'COTONOU',country:'BENIN',lat:6.35,lon:2.42,pop:0.72,capital:false},
+  {name:'PORTO-NOVO',country:'BENIN',lat:6.49,lon:2.63,pop:0.32,capital:true},
+  {name:'CONAKRY',country:'GUINEA',lat:9.56,lon:-13.68,pop:1.9,capital:true},
+  {name:'FREETOWN',country:'SIERRA LEONE',lat:8.48,lon:-13.23,pop:1.2,capital:true},
+  {name:'MONROVIA',country:'LIBERIA',lat:6.30,lon:-10.80,pop:1.6,capital:true},
+  {name:'BISSAU',country:'GUINEA-BISSAU',lat:11.86,lon:-15.60,pop:0.41,capital:true},
+  {name:'BANJUL',country:'GAMBIA',lat:13.45,lon:-16.58,pop:0.31,capital:true},
+  {name:'NOUAKCHOTT',country:'MAURITANIA',lat:18.08,lon:-15.97,pop:1.3,capital:true},
+  {name:'PRAIA',country:'CAPE VERDE',lat:14.93,lon:-23.51,pop:0.16,capital:true},
+  {name:'MALABO',country:'EQUAT.GUINEA',lat:3.75,lon:8.78,pop:0.30,capital:true},
+  {name:'SAO TOME',country:'SAO TOME',lat:0.34,lon:6.73,pop:0.09,capital:true},
+  {name:'BANGUI',country:'CENT. AFR.',lat:4.36,lon:18.56,pop:0.91,capital:true},
+  {name:'MOGADISHU',country:'SOMALIA',lat:2.05,lon:45.34,pop:2.4,capital:true},
+  {name:'DJIBOUTI',country:'DJIBOUTI',lat:11.59,lon:43.15,pop:0.62,capital:true},
+  {name:'ASMARA',country:'ERITREA',lat:15.34,lon:38.93,pop:0.90,capital:true},
+  {name:'ANTANANARIVO',country:'MADAGASCAR',lat:-18.91,lon:47.54,pop:3.4,capital:true},
+  {name:'PORT LOUIS',country:'MAURITIUS',lat:-20.16,lon:57.50,pop:0.15,capital:true},
+  {name:'VICTORIA',country:'SEYCHELLES',lat:-4.62,lon:55.45,pop:0.03,capital:true},
+  {name:'MORONI',country:'COMOROS',lat:-11.70,lon:43.26,pop:0.06,capital:true},
+  {name:'MBABANE',country:'ESWATINI',lat:-26.32,lon:31.14,pop:0.09,capital:true},
+  {name:'MASERU',country:'LESOTHO',lat:-29.32,lon:27.48,pop:0.33,capital:true},
+  {name:'WINDHOEK',country:'NAMIBIA',lat:-22.56,lon:17.08,pop:0.43,capital:true},
+  {name:'GABORONE',country:'BOTSWANA',lat:-24.65,lon:25.91,pop:0.27,capital:true},
+  {name:'BUJUMBURA',country:'BURUNDI',lat:-3.38,lon:29.36,pop:1.0,capital:true},
+  {name:'LILONGWE',country:'MALAWI',lat:-13.97,lon:33.79,pop:0.99,capital:true},
+  // EUROPE
+  {name:'LONDON',country:'UK',lat:51.51,lon:-0.13,pop:9.5,capital:true},
+  {name:'PARIS',country:'FRANCE',lat:48.85,lon:2.35,pop:11.0,capital:true},
+  {name:'BERLIN',country:'GERMANY',lat:52.52,lon:13.40,pop:3.8,capital:true},
+  {name:'MADRID',country:'SPAIN',lat:40.42,lon:-3.70,pop:6.7,capital:true},
+  {name:'ROME',country:'ITALY',lat:41.90,lon:12.50,pop:4.3,capital:true},
+  {name:'MOSCOW',country:'RUSSIA',lat:55.75,lon:37.62,pop:12.5,capital:true},
+  {name:'ST. PETERSBURG',country:'RUSSIA',lat:59.95,lon:30.32,pop:5.3,capital:false},
+  {name:'KYIV',country:'UKRAINE',lat:50.45,lon:30.52,pop:3.0,capital:true},
+  {name:'WARSAW',country:'POLAND',lat:52.23,lon:21.01,pop:1.8,capital:true},
+  {name:'AMSTERDAM',country:'NETHERLANDS',lat:52.37,lon:4.90,pop:0.87,capital:true},
+  {name:'BRUSSELS',country:'BELGIUM',lat:50.85,lon:4.35,pop:1.2,capital:true},
+  {name:'VIENNA',country:'AUSTRIA',lat:48.21,lon:16.37,pop:1.9,capital:true},
+  {name:'BERN',country:'SWITZERLAND',lat:46.95,lon:7.45,pop:0.42,capital:true},
+  {name:'ZURICH',country:'SWITZERLAND',lat:47.38,lon:8.54,pop:0.43,capital:false},
+  {name:'PRAGUE',country:'CZECHIA',lat:50.08,lon:14.44,pop:1.3,capital:true},
+  {name:'BUDAPEST',country:'HUNGARY',lat:47.50,lon:19.04,pop:1.8,capital:true},
+  {name:'BUCHAREST',country:'ROMANIA',lat:44.43,lon:26.10,pop:1.8,capital:true},
+  {name:'ATHENS',country:'GREECE',lat:37.98,lon:23.73,pop:3.2,capital:true},
+  {name:'STOCKHOLM',country:'SWEDEN',lat:59.33,lon:18.07,pop:1.0,capital:true},
+  {name:'OSLO',country:'NORWAY',lat:59.91,lon:10.75,pop:1.0,capital:true},
+  {name:'COPENHAGEN',country:'DENMARK',lat:55.68,lon:12.57,pop:0.79,capital:true},
+  {name:'HELSINKI',country:'FINLAND',lat:60.17,lon:24.94,pop:0.65,capital:true},
+  {name:'REYKJAVIK',country:'ICELAND',lat:64.14,lon:-21.94,pop:0.13,capital:true},
+  {name:'LISBON',country:'PORTUGAL',lat:38.72,lon:-9.14,pop:0.55,capital:true},
+  {name:'DUBLIN',country:'IRELAND',lat:53.35,lon:-6.27,pop:1.4,capital:true},
+  {name:'SOFIA',country:'BULGARIA',lat:42.70,lon:23.32,pop:1.2,capital:true},
+  {name:'ZAGREB',country:'CROATIA',lat:45.81,lon:15.97,pop:0.69,capital:true},
+  {name:'BELGRADE',country:'SERBIA',lat:44.80,lon:20.47,pop:1.7,capital:true},
+  {name:'SARAJEVO',country:'BOSNIA',lat:43.85,lon:18.39,pop:0.34,capital:true},
+  {name:'TIRANA',country:'ALBANIA',lat:41.33,lon:19.83,pop:0.87,capital:true},
+  {name:'SKOPJE',country:'N. MACEDONIA',lat:42.00,lon:21.43,pop:0.58,capital:true},
+  {name:'PODGORICA',country:'MONTENEGRO',lat:42.44,lon:19.26,pop:0.19,capital:true},
+  {name:'PRISTINA',country:'KOSOVO',lat:42.67,lon:21.17,pop:0.22,capital:true},
+  {name:'RIGA',country:'LATVIA',lat:56.95,lon:24.11,pop:0.61,capital:true},
+  {name:'TALLINN',country:'ESTONIA',lat:59.44,lon:24.75,pop:0.45,capital:true},
+  {name:'VILNIUS',country:'LITHUANIA',lat:54.69,lon:25.28,pop:0.58,capital:true},
+  {name:'MINSK',country:'BELARUS',lat:53.90,lon:27.56,pop:2.0,capital:true},
+  {name:'CHISINAU',country:'MOLDOVA',lat:47.01,lon:28.86,pop:0.53,capital:true},
+  {name:'BRATISLAVA',country:'SLOVAKIA',lat:48.15,lon:17.11,pop:0.48,capital:true},
+  {name:'LJUBLJANA',country:'SLOVENIA',lat:46.05,lon:14.51,pop:0.29,capital:true},
+  {name:'LUXEMBOURG',country:'LUXEMBOURG',lat:49.61,lon:6.13,pop:0.12,capital:true},
+  {name:'VALLETTA',country:'MALTA',lat:35.90,lon:14.51,pop:0.21,capital:true},
+  {name:'ANDORRA',country:'ANDORRA',lat:42.51,lon:1.52,pop:0.08,capital:true},
+  {name:'VADUZ',country:'LIECHTENSTEIN',lat:47.14,lon:9.52,pop:0.04,capital:true},
+  {name:'MONACO',country:'MONACO',lat:43.73,lon:7.42,pop:0.04,capital:true},
+  {name:'SAN MARINO',country:'SAN MARINO',lat:43.94,lon:12.46,pop:0.03,capital:true},
+  {name:'VATICAN CITY',country:'VATICAN',lat:41.90,lon:12.45,pop:0.001,capital:true},
+  // NORTH AMERICA
+  {name:'WASHINGTON DC',country:'USA',lat:38.90,lon:-77.04,pop:0.70,capital:true},
+  {name:'NEW YORK',country:'USA',lat:40.71,lon:-74.00,pop:18.8,capital:false},
+  {name:'LOS ANGELES',country:'USA',lat:34.05,lon:-118.24,pop:13.2,capital:false},
+  {name:'CHICAGO',country:'USA',lat:41.88,lon:-87.63,pop:9.5,capital:false},
+  {name:'HOUSTON',country:'USA',lat:29.76,lon:-95.37,pop:7.3,capital:false},
+  {name:'MIAMI',country:'USA',lat:25.77,lon:-80.19,pop:6.2,capital:false},
+  {name:'TORONTO',country:'CANADA',lat:43.65,lon:-79.38,pop:6.2,capital:false},
+  {name:'OTTAWA',country:'CANADA',lat:45.42,lon:-75.69,pop:1.4,capital:true},
+  {name:'MONTREAL',country:'CANADA',lat:45.50,lon:-73.57,pop:4.2,capital:false},
+  {name:'MEXICO CITY',country:'MEXICO',lat:19.43,lon:-99.13,pop:21.6,capital:true},
+  {name:'GUADALAJARA',country:'MEXICO',lat:20.66,lon:-103.35,pop:5.3,capital:false},
+  // CENTRAL AMERICA
+  {name:'GUATEMALA CITY',country:'GUATEMALA',lat:14.64,lon:-90.52,pop:3.0,capital:true},
+  {name:'SAN SALVADOR',country:'EL SALVADOR',lat:13.70,lon:-89.20,pop:1.1,capital:true},
+  {name:'TEGUCIGALPA',country:'HONDURAS',lat:14.07,lon:-87.21,pop:1.4,capital:true},
+  {name:'MANAGUA',country:'NICARAGUA',lat:12.14,lon:-86.27,pop:1.0,capital:true},
+  {name:'SAN JOSE',country:'COSTA RICA',lat:9.93,lon:-84.08,pop:1.4,capital:true},
+  {name:'PANAMA CITY',country:'PANAMA',lat:8.99,lon:-79.52,pop:1.9,capital:true},
+  {name:'BELMOPAN',country:'BELIZE',lat:17.25,lon:-88.77,pop:0.02,capital:true},
+  // CARIBBEAN
+  {name:'HAVANA',country:'CUBA',lat:23.13,lon:-82.38,pop:2.1,capital:true},
+  {name:'PORT-AU-PRINCE',country:'HAITI',lat:18.55,lon:-72.34,pop:2.8,capital:true},
+  {name:'SANTO DOMINGO',country:'DOM. REP.',lat:18.48,lon:-69.90,pop:3.5,capital:true},
+  {name:'SAN JUAN',country:'PUERTO RICO',lat:18.47,lon:-66.11,pop:2.4,capital:false},
+  {name:'KINGSTON',country:'JAMAICA',lat:18.00,lon:-76.80,pop:0.66,capital:true},
+  {name:'NASSAU',country:'BAHAMAS',lat:25.05,lon:-77.35,pop:0.27,capital:true},
+  {name:'PORT OF SPAIN',country:'TRINIDAD',lat:10.65,lon:-61.52,pop:0.54,capital:true},
+  {name:'BRIDGETOWN',country:'BARBADOS',lat:13.10,lon:-59.62,pop:0.11,capital:true},
+  {name:'ROSEAU',country:'DOMINICA',lat:15.30,lon:-61.39,pop:0.01,capital:true},
+  {name:'CASTRIES',country:'ST. LUCIA',lat:14.01,lon:-61.00,pop:0.02,capital:true},
+  {name:'KINGSTOWN',country:'ST. VINCENT',lat:13.16,lon:-61.22,pop:0.03,capital:true},
+  {name:'ST GEORGE\'S',country:'GRENADA',lat:12.05,lon:-61.75,pop:0.04,capital:true},
+  {name:'BASSETERRE',country:'ST. KITTS',lat:17.30,lon:-62.72,pop:0.01,capital:true},
+  {name:'ST. JOHN\'S',country:'ANTIGUA',lat:17.12,lon:-61.85,pop:0.02,capital:true},
+  // SOUTH AMERICA
+  {name:'BRASILIA',country:'BRAZIL',lat:-15.79,lon:-47.88,pop:4.6,capital:true},
+  {name:'SAO PAULO',country:'BRAZIL',lat:-23.55,lon:-46.63,pop:22.0,capital:false},
+  {name:'RIO DE JANEIRO',country:'BRAZIL',lat:-22.91,lon:-43.17,pop:13.5,capital:false},
+  {name:'BUENOS AIRES',country:'ARGENTINA',lat:-34.60,lon:-58.38,pop:15.1,capital:true},
+  {name:'BOGOTA',country:'COLOMBIA',lat:4.71,lon:-74.07,pop:11.2,capital:true},
+  {name:'LIMA',country:'PERU',lat:-12.05,lon:-77.04,pop:11.1,capital:true},
+  {name:'SANTIAGO',country:'CHILE',lat:-33.46,lon:-70.65,pop:7.4,capital:true},
+  {name:'CARACAS',country:'VENEZUELA',lat:10.48,lon:-66.88,pop:2.9,capital:true},
+  {name:'QUITO',country:'ECUADOR',lat:-0.23,lon:-78.51,pop:3.2,capital:true},
+  {name:'LA PAZ',country:'BOLIVIA',lat:-16.50,lon:-68.15,pop:1.9,capital:true},
+  {name:'ASUNCION',country:'PARAGUAY',lat:-25.29,lon:-57.65,pop:3.2,capital:true},
+  {name:'MONTEVIDEO',country:'URUGUAY',lat:-34.87,lon:-56.17,pop:1.4,capital:true},
+  {name:'GEORGETOWN',country:'GUYANA',lat:6.80,lon:-58.16,pop:0.24,capital:true},
+  {name:'PARAMARIBO',country:'SURINAME',lat:5.87,lon:-55.17,pop:0.24,capital:true},
+  // OCEANIA / AUSTRALIA
+  {name:'CANBERRA',country:'AUSTRALIA',lat:-35.28,lon:149.13,pop:0.46,capital:true},
+  {name:'SYDNEY',country:'AUSTRALIA',lat:-33.87,lon:151.21,pop:5.3,capital:false},
+  {name:'MELBOURNE',country:'AUSTRALIA',lat:-37.81,lon:144.96,pop:5.1,capital:false},
+  {name:'BRISBANE',country:'AUSTRALIA',lat:-27.47,lon:153.02,pop:2.6,capital:false},
+  {name:'PERTH',country:'AUSTRALIA',lat:-31.95,lon:115.86,pop:2.1,capital:false},
+  {name:'WELLINGTON',country:'NEW ZEALAND',lat:-41.29,lon:174.78,pop:0.42,capital:true},
+  {name:'AUCKLAND',country:'NEW ZEALAND',lat:-36.86,lon:174.77,pop:1.7,capital:false},
+  {name:'PORT MORESBY',country:'PAPUA N.G.',lat:-9.44,lon:147.18,pop:0.42,capital:true},
+  {name:'SUVA',country:'FIJI',lat:-18.14,lon:178.44,pop:0.19,capital:true},
+  {name:'HONIARA',country:'SOLOMON IS.',lat:-9.43,lon:160.05,pop:0.08,capital:true},
+  {name:'PORT VILA',country:'VANUATU',lat:-17.73,lon:168.32,pop:0.05,capital:true},
+  {name:'APIA',country:'SAMOA',lat:-13.83,lon:-171.77,pop:0.04,capital:true},
+  {name:"NUKU'ALOFA",country:'TONGA',lat:-21.14,lon:-175.22,pop:0.02,capital:true},
+  {name:'FUNAFUTI',country:'TUVALU',lat:-8.52,lon:179.20,pop:0.005,capital:true},
+  {name:'TARAWA',country:'KIRIBATI',lat:1.33,lon:172.98,pop:0.06,capital:true},
+  {name:'YAREN',country:'NAURU',lat:-0.55,lon:166.92,pop:0.01,capital:true},
+  {name:'NGERULMUD',country:'PALAU',lat:7.50,lon:134.62,pop:0.02,capital:true},
+  {name:'PALIKIR',country:'MICRONESIA',lat:6.92,lon:158.16,pop:0.006,capital:true},
+  {name:'MAJURO',country:'MARSHALL IS.',lat:7.10,lon:171.38,pop:0.03,capital:true},
+  {name:'DILI',country:'TIMOR-LESTE',lat:-8.56,lon:125.58,pop:0.28,capital:true},
+];
+set('citytotal', WORLD_CITIES.length);
+set('h-cities', WORLD_CITIES.length);
+const WX_SOURCE_CITIES = WORLD_CITIES.slice(0,30);
+function wxCode(c){
+  if(c===0)return{l:'CLEAR',cls:'wxc',i:'☀'};if(c<=2)return{l:'PARTLY',cls:'wxs',i:'⛅'};
+  if(c<=3)return{l:'OVERCAST',cls:'wxcl',i:'☁'};if(c<=45)return{l:'FOG',cls:'wxcl',i:'🌫'};
+  if(c<=67)return{l:'RAIN',cls:'wxr',i:'🌧'};if(c<=77)return{l:'SNOW',cls:'wxsn',i:'❄'};
+  if(c<=82)return{l:'SHOWERS',cls:'wxr',i:'🌨'};return{l:'STORM',cls:'wxr',i:'⛈'};
+}
+function loadDemoWeather(){
+  const el=$('wx');if(!el)return;
+  el.innerHTML='';wxStore={};
+  WX_SOURCE_CITIES.forEach((city,i)=>{
+    const temp=Math.round(4+Math.random()*32);
+    const wind=Math.round(5+Math.random()*60);
+    const wi=wxCode([0,1,2,3,45,61,71,80,95][i%9]);
+    const tc=temp>32?'var(--r)':temp>18?'var(--g)':temp>2?'var(--c)':'var(--p)';
+    wxStore[city.name]={temp,wind,wi,lat:city.lat,lon:city.lon};
+    el.innerHTML+=`<div class="wxcard" style="color:${tc}"><div class="wxcity">${city.name}</div>
+      <div class="wxtemp">${wi.i} ${temp}°C</div><div class="wxline">💨 ${wind} km/h</div>
+      <span class="wxbdg ${wi.cls}">${wi.l}</span></div>`;
+  });
+  set('wx-ms','DEMO');
+  $('ld3').className='lsdot ls-done';
+  addLog('WX','Demo weather loaded (network unavailable)','warn');
+}
+async function fetchWeather(){
+  try{
+    const t0=Date.now();
+    const lats=WX_SOURCE_CITIES.map(c=>c.lat).join(','),lons=WX_SOURCE_CITIES.map(c=>c.lon).join(',');
+    const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current_weather=true&wind_speed_unit=kmh&timezone=UTC&forecast_days=1`,{signal:timeoutSignal(12000)});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const ms=Date.now()-t0;set('wx-ms',ms+'ms');
+    const raw=await r.json();const arr=Array.isArray(raw)?raw:[raw];wxStore={};
+    const el=$('wx');el.innerHTML='';
+    arr.forEach((d,i)=>{
+      const city=WX_SOURCE_CITIES[i];if(!city||!d.current_weather)return;
+      const cw=d.current_weather,temp=Math.round(cw.temperature),wind=Math.round(cw.windspeed),wi=wxCode(cw.weathercode);
+      const tc=temp>32?'var(--r)':temp>18?'var(--g)':temp>2?'var(--c)':'var(--p)';
+      wxStore[city.name]={temp,wind,wi,lat:city.lat,lon:city.lon};
+      el.innerHTML+=`<div class="wxcard" style="color:${tc}"><div class="wxcity">${city.name}</div>
+        <div class="wxtemp">${wi.i} ${temp}°C</div><div class="wxline">💨 ${wind} km/h</div>
+        <span class="wxbdg ${wi.cls}">${wi.l}</span></div>`;
+    });
+    $('ld3').className='lsdot ls-done';
+    addLog('WX',`Meteo: ${ms}ms — ${arr.length} stations`,'ok');
+  }catch(e){addLog('WX','Weather: '+e.message,'warn');loadDemoWeather();}
+}
+
+// ── TOPOJSON WORLD ATLAS ──────────────────────────────────────
+// Compute weighted centroid of a polygon ring
+function ringCentroid(ring){
+  let lon=0,lat=0,area=0;
+  for(let i=0;i<ring.length-1;i++){
+    const x0=ring[i][0],y0=ring[i][1],x1=ring[i+1][0],y1=ring[i+1][1];
+    const a=x0*y1-x1*y0; area+=a; lon+=(x0+x1)*a; lat+=(y0+y1)*a;
+  }
+  if(Math.abs(area)<1e-10){
+    // fallback: simple mean
+    let sx=0,sy=0;ring.forEach(p=>{sx+=p[0];sy+=p[1];});
+    return{lon:sx/ring.length,lat:sy/ring.length,area:0};
+  }
+  area*=3;return{lon:lon/area,lat:lat/area,area:Math.abs(area/2)};
+}
+function featureCentroid(feature){
+  if(!feature.geometry)return null;
+  const geom=feature.geometry;
+  if(geom.type==='Polygon'){
+    return ringCentroid(geom.coordinates[0]);
+  }else if(geom.type==='MultiPolygon'){
+    // Weighted centroid across all outer rings.
+    let sx=0,sy=0,sa=0;
+    geom.coordinates.forEach(poly=>{
+      const c=ringCentroid(poly[0]);
+      sx+=c.lon*c.area;sy+=c.lat*c.area;sa+=c.area;
+    });
+    if(sa>0)return{lon:sx/sa,lat:sy/sa,area:sa};
+    return ringCentroid(geom.coordinates[0][0]);
+  }
+  return null;
+}
+function featureVertexCount(feature){
+  if(!feature.geometry)return 0;
+  const geom=feature.geometry;
+  if(geom.type==='Polygon')return geom.coordinates.reduce((s,r)=>s+r.length,0);
+  if(geom.type==='MultiPolygon')return geom.coordinates.reduce((s,p)=>s+p.reduce((a,r)=>a+r.length,0),0);
+  return 0;
+}
+
+async function loadWorldAtlas(){
+  try{
+    await ensureTopojsonLib();
+    set('nd-atlas','FETCHING...');
+    set('lsub','LOADING TOPOJSON WORLD ATLAS...');
+    const r=await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json',{signal:timeoutSignal(12000)});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const topo=await r.json();
+    countryFeatures=topojson.feature(topo,topo.objects.countries).features;
+    // Pre-compute centroids + names
+    countryCentroids=[];
+    countryFeatures.forEach(f=>{
+      const id=Number(f.id);
+      const name=ISO_NAMES[id]||null;
+      const c=featureCentroid(f);
+      if(c&&name){
+        const vtx=featureVertexCount(f);
+        countryCentroids.push({lon:c.lon,lat:c.lat,name,vtx,id});
+      }
+    });
+    const total=countryCentroids.length;
+    set('nd-atlas',countryFeatures.length+' CTRY');
+    set('h-brd',countryFeatures.length+' BORDERS');
+    set('h-names',total);
+    $('ld1').className='lsdot ls-done';
+    $('nd-dot').className='ndot non';
+    globeDirty=true;
+    addLog('GEO',`Atlas 50m: ${countryFeatures.length} countries, ${total} named`,'ok');
+    return true;
+  }catch(e){
+    set('nd-atlas','CDN ERR');set('h-brd','SIMPLIFIED');
+    $('ld1').className='lsdot ls-done';$('nd-dot').className='ndot non';
+    addLog('GEO','Atlas fail: '+e.message,'warn');globeDirty=true;return false;
+  }
+}
+
+// ── OPENSKY ───────────────────────────────────────────────────
+async function fetchFlights(){
+  addLog('SKY','Querying OpenSky ADS-B...','info');
+  const t0=Date.now();
+  try{
+    const resp=await fetch('https://opensky-network.org/api/states/all',{headers:{'Accept':'application/json'},signal:timeoutSignal(12000)});
+    if(!resp.ok)throw new Error('HTTP '+resp.status);
+    const data=await resp.json();const ms=Date.now()-t0;
+    set('sky-ms',ms+'ms');set('h-lat',ms+'ms');
+    $('ld2').className='lsdot ls-done';
+    const states=data.states||[];totalRecv+=states.length;set('h-recv',totalRecv.toLocaleString());
+    const air=states.filter(s=>s[5]!==null&&s[6]!==null&&s[8]===false).map(s=>({
+      icao:s[0]||'',cs:(s[1]||s[0]||'').trim(),country:s[2]||'?',
+      lon:s[5],lat:s[6],alt_m:s[7]||0,alt:s[7]?Math.round(s[7]*3.28084):0,
+      vel:s[9]||0,spd:s[9]?Math.round(s[9]*1.94384):0,
+      hdg:s[10]?Math.round(s[10]):0,vrate:s[11]?Math.round(s[11]*196.85):0,squawk:s[14]||'----',lastSeen:Date.now()
+    }));
+    milFlights=air.filter(f=>{
+      const m=detectMil(f.icao);
+      if(m){f.milInfo=m;f.milType=classifyMilType(f);return true;}
+      if(isMilCS(f.cs)){f.milInfo={nation:'OTHER',flag:'🛡',role:'MIL'};f.milType=classifyMilType(f);return true;}
+      return false;
+    });
+    civilFlights=air.filter(f=>!milFlights.includes(f));
+    allFlights=air;
+    updateAllUI(ms);
+    $('loading').style.display='none';
+    addLog('SKY',`${air.length} airborne | ${milFlights.length} mil | ${ms}ms`,'ok');
+  }catch(e){
+    addLog('SKY','OpenSky: '+e.message,'warn');
+    const pill=$('apistatus');pill.style.cssText='color:var(--a);border:1px solid rgba(255,170,0,0.28);background:rgba(255,170,0,0.04);font-size:7px;padding:3px 8px;border-radius:2px;display:flex;align-items:center;gap:4px;';
+    set('apitext','RATE LTD');
+    if(allFlights.length===0)loadDemo();else $('loading').style.display='none';
+  }
+  refreshCD=30;set('refresh-cd','30s');
+}
+
+function updateAllUI(ms){
+  const air=allFlights;
+  const countries=[...new Set(air.map(f=>f.country))].length;
+  const withAlt=air.filter(f=>f.alt>0),withSpd=air.filter(f=>f.spd>0);
+  const avgAlt=withAlt.length?Math.round(withAlt.reduce((a,f)=>a+f.alt,0)/withAlt.length):0;
+  const avgSpd=withSpd.length?Math.round(withSpd.reduce((a,f)=>a+f.spd,0)/withSpd.length):0;
+  const sq77=air.filter(f=>f.squawk==='7700').length,sq76=air.filter(f=>f.squawk==='7600').length,sq75=air.filter(f=>f.squawk==='7500').length;
+  const emerg=sq77+sq76+sq75;
+  const rna=air.filter(f=>f.lon>=-140&&f.lon<=-50&&f.lat>=15&&f.lat<=75).length;
+  const reu=air.filter(f=>f.lon>=-12&&f.lon<=45&&f.lat>=35&&f.lat<=72).length;
+  const rap=air.filter(f=>f.lon>=90&&f.lon<=180&&f.lat>=-50&&f.lat<=55).length;
+  const rme=air.filter(f=>f.lon>=35&&f.lon<=65&&f.lat>=12&&f.lat<=38).length;
+  const rot=Math.max(0,air.length-rna-reu-rap-rme);
+  const tot=air.length||1;
+  const civilCount=civilFlights.length,milCount=milFlights.length;
+  [['na',rna],['eu',reu],['ap',rap],['me',rme],['ot',rot]].forEach(([r,v])=>{
+    const pct=Math.round(v/tot*100);
+    const b=$('bar-'+r);if(b)b.style.width=pct+'%';const p=$('pct-'+r);if(p)p.textContent=pct+'%';
+  });
+  set('aircount',civilCount.toLocaleString());set('milcount',milCount);
+  set('vslcount',vessels.length);set('emergtop',emerg);set('countrycount',countries);
+  set('cvncount',usCarriers.length);
+  set('ftotal',air.length.toLocaleString());set('civtotal',civilFlights.length.toLocaleString());
+  set('miltotal',milCount);set('shiptotal',vessels.length);set('sqtotal',emerg);
+  set('h-air',civilCount.toLocaleString());set('h-mil',milCount);
+  set('h-vsl',vessels.length);set('h-emerg',emerg);set('h-alt',Math.round(avgAlt/1000)+'K ft');
+  set('sg-air',civilCount.toLocaleString());set('sg-mil',milCount);set('sg-vsl',vessels.length);set('sg-emg',emerg);
+  set('sb-flights',civilCount.toLocaleString());set('sb-mil',milCount);
+  set('sb-vsl',vessels.length);set('sb-alt',Math.round(avgAlt/1000)+'K ft');set('sb-ctr',countries);set('sb-emg',emerg);
+  set('flistcnt',Math.min(air.length,80));
+  const n=new Date(),pp=v=>String(v).padStart(2,'0');
+  set('lastpull',`${pp(n.getUTCHours())}:${pp(n.getUTCMinutes())}:${pp(n.getUTCSeconds())} UTC`);
+  const pill=$('apistatus');pill.style.cssText='color:var(--g);border:1px solid rgba(0,255,136,0.28);background:rgba(0,255,136,0.04);font-size:7px;padding:3px 8px;border-radius:2px;display:flex;align-items:center;gap:4px;';
+  set('apitext','LIVE DATA');
+  buildFlightTable();buildMilTable();buildShipTable();buildCarrierTable();buildThreatBoard();
+  drawHistogram();buildSparkline();buildTelemetry(avgAlt,avgSpd,countries,emerg);
+  buildAlerts(sq77,sq76,sq75);buildTicker(air,avgAlt,avgSpd,countries);
+  if(emerg>0)addLog('ATC',`⚠ EMERG: 7700×${sq77} 7600×${sq76} 7500×${sq75}`,'crit');
+  if(milFlights.length>0)addLog('MIL',`${milFlights.length} military contacts active`,'mil');
+}
+
+function loadDemo(){
+  const als=['UAL','DAL','AAL','BAW','AFR','DLH','EK','SQ','QF','LH','FR','TK'];
+  const ctrs=['United States','United Kingdom','France','Germany','UAE','Australia','Japan','Canada'];
+  civilFlights=Array.from({length:280},(_,i)=>({icao:'a'+i.toString(16).padStart(5,'0'),
+    cs:als[i%als.length]+(100+Math.floor(i/als.length)*11),country:ctrs[i%ctrs.length],
+    lat:(Math.random()-.5)*140,lon:Math.random()*350-175,
+    alt:18000+Math.floor(Math.random()*27000),spd:340+Math.floor(Math.random()*270),
+    hdg:Math.floor(Math.random()*360),vrate:Math.floor((Math.random()-.5)*2000),squawk:'2000'}));
+  const mcs=['RCH102','CNV441','DUKE01','GHOST11','RAPTOR01','SHADOW22','REAPER07','ZEUS33'];
+  milFlights=mcs.map((cs,i)=>({icao:'ae0'+i.toString(16).padStart(4,'0'),cs,country:'United States',
+    lat:28+Math.random()*34,lon:-55+Math.random()*120,alt:24000+Math.floor(Math.random()*22000),
+    spd:390+Math.floor(Math.random()*310),hdg:Math.floor(Math.random()*360),vrate:0,squawk:'6001',
+    milInfo:{nation:'USA',flag:'🇺🇸',role:'USAF/USN'},milType:'TACTICAL SUPPORT',lastSeen:Date.now()}));
+  milFlights.forEach(f=>{f.milType=classifyMilType(f);});
+  allFlights=[...civilFlights,...milFlights];
+  updateAllUI(0);$('loading').style.display='none';
+}
+
+// ── TABLES ────────────────────────────────────────────────────
+function buildFlightTable(){
+  const el=$('flist');el.innerHTML='';
+  [...allFlights].sort((a,b)=>b.alt-a.alt).slice(0,80).forEach(f=>{
+    const isMil=milFlights.includes(f),isEmerg=['7700','7600','7500'].includes(f.squawk);
+    const r=document.createElement('div');
+    r.className='frow'+(selObj&&selObj.icao===f.icao?' sel':'');
+    r.style.gridTemplateColumns='1.2fr 0.65fr 0.85fr 0.45fr 0.35fr';
+    const vd=f.vrate>200?'↑':f.vrate<-200?'↓':'→';
+    const vc=f.vrate>200?'var(--g)':f.vrate<-200?'var(--r)':'var(--t)';
+    const tag=isMil?'<span class="ftag ftg-mil">MIL</span>':isEmerg?'<span class="ftag ftg-em">EMRG</span>':f.alt>35000?'<span class="ftag ftg-hi">HI</span>':'<span class="ftag ftg-std">STD</span>';
+    r.innerHTML=`<div><div class="fcs" style="${isEmerg?'color:var(--r)':isMil?'color:var(--o)':''}">${f.cs||f.icao}</div>${tag}</div>
+      <div style="font-size:6.5px;color:var(--t2)">${(f.country||'').substring(0,9)}</div>
+      <div><div style="color:var(--g);font-size:7.5px">${Math.round(f.alt/100)*100}ft</div><div style="color:var(--a);font-size:7.5px">${f.spd}kts</div></div>
+      <div style="color:var(--t2);font-size:7px">${f.hdg}°</div>
+      <div style="text-align:center;color:${vc};font-size:11px">${vd}</div>`;
+    r.onclick=()=>{document.querySelectorAll('.frow').forEach(x=>x.classList.remove('sel'));r.classList.add('sel');selObj=f;showFlightDetail(f,isMil);set('h-sel',f.cs||f.icao);};
+    el.appendChild(r);
+  });
+}
+function buildMilTable(){
+  const el=$('millist');el.innerHTML='';
+  milFlights.slice(0,50).forEach(f=>{
+    const r=document.createElement('div');r.className='frow'+(selObj&&selObj.icao===f.icao?' sel':'');
+    r.style.gridTemplateColumns='1.2fr 0.7fr 0.85fr 0.75fr';
+    const mi=f.milInfo||{nation:'UNK',flag:'🛡'};
+    r.innerHTML=`<div><div class="fcs" style="color:var(--o)">${f.cs||f.icao}</div><div style="font-size:5.5px;color:var(--t)">${f.icao}</div></div>
+      <div style="font-size:7px">${mi.flag} ${mi.nation}</div>
+      <div><div style="color:var(--g);font-size:7.5px">${Math.round(f.alt/100)*100}ft</div><div style="color:var(--a);font-size:7.5px">${f.spd}kts</div></div>
+      <div style="font-size:6px;color:var(--o)">${f.milType||'TACTICAL SUPPORT'}</div>`;
+    r.onclick=()=>{document.querySelectorAll('.frow').forEach(x=>x.classList.remove('sel'));r.classList.add('sel');selObj=f;showFlightDetail(f,true);set('h-sel',f.cs||f.icao);};
+    el.appendChild(r);
+  });
+  if(!milFlights.length)el.innerHTML='<div style="padding:12px;font-size:7px;color:var(--t);text-align:center">NO MILITARY CONTACTS</div>';
+}
+function buildShipTable(){
+  const el=$('shiplist');el.innerHTML='';
+  vessels.forEach(v=>{
+    const r=document.createElement('div');r.className='frow'+(selObj&&selObj.mmsi===v.mmsi?' sel':'');
+    r.style.gridTemplateColumns='1.2fr 0.7fr 0.65fr 0.85fr';
+    const c=v.isMil?'var(--o)':v.type.includes('OIL')||v.type.includes('TANKER')||v.type.includes('SUEZMAX')||v.type.includes('AFRAMAX')?'var(--p)':'var(--tl)';
+    const dest=v.route[v.route.length-1];
+    r.innerHTML=`<div><div style="color:${c};font-weight:bold;font-size:8px">${v.name}</div><div style="font-size:5.5px;color:var(--t)">${v.mmsi}</div></div>
+      <div style="font-size:6.5px;color:var(--t2)">${v.flag} ${v.type.substring(0,10)}</div>
+      <div><div style="color:var(--a);font-size:7.5px">${Math.round(v.vspd)}kts</div><div style="color:var(--t);font-size:7px">${v.hdg}°</div></div>
+      <div style="font-size:6.5px;color:var(--t)">${dest[0].toFixed(1)}° ${dest[1].toFixed(1)}°</div>`;
+    r.onclick=()=>{document.querySelectorAll('.frow').forEach(x=>x.classList.remove('sel'));r.classList.add('sel');selObj=v;showVesselDetail(v);set('h-sel',v.name);};
+    el.appendChild(r);
+  });
+}
+function buildCarrierTable(){
+  const el=$('carrierlist');if(!el)return;
+  el.innerHTML='';
+  usCarriers.forEach(c=>{
+    const r=document.createElement('div');r.className='frow'+(selObj&&selObj.mmsi===c.mmsi?' sel':'');
+    r.style.gridTemplateColumns='1.25fr 0.45fr 0.55fr 0.75fr';
+    r.innerHTML=`<div><div style="color:var(--o);font-weight:bold;font-size:8px">${c.name}</div><div style="font-size:5.5px;color:var(--t)">SIM TRACK</div></div>
+      <div style="font-size:6.5px;color:var(--a)">${c.csg}</div>
+      <div style="font-size:6px;color:var(--r)">${c.theater}</div>
+      <div><div style="color:var(--a);font-size:7.5px">${Math.round(c.vspd)}kts</div><div style="color:var(--t);font-size:7px">${c.hdg}°</div></div>`;
+    r.onclick=()=>{document.querySelectorAll('.frow').forEach(x=>x.classList.remove('sel'));r.classList.add('sel');selObj=c;showCarrierDetail(c);set('h-sel',c.name);};
+    el.appendChild(r);
+  });
+}
+function buildThreatBoard(){
+  const list=$('threat-list');if(!list)return;
+  const rows=[...milFlights].sort((a,b)=>b.alt-a.alt).slice(0,10).map(f=>{
+    const mi=f.milInfo||{flag:'🛡',nation:'OTHER'};
+    const t=f.lastSeen?new Date(f.lastSeen):new Date();
+    const p=v=>String(v).padStart(2,'0');
+    const ts=`${p(t.getUTCHours())}:${p(t.getUTCMinutes())}:${p(t.getUTCSeconds())}`;
+    return `<div class="th-row"><span>${mi.flag||'🛡'}</span><span style="color:var(--o)">${f.cs||f.icao}</span><span>${mi.nation||'OTHER'}</span><span>${f.milType||'TACTICAL SUPPORT'}</span><span>${Math.round(f.alt/100)}00</span><span>${f.spd}</span><span>${ts}</span></div>`;
+  });
+  list.innerHTML=rows.length?rows.join(''):'<div class="th-row"><span>•</span><span>NO ACTIVE</span><span>MIL</span><span>TRACKS</span><span>--</span><span>--</span><span>--</span></div>';
+}
+
+// ── DETAILS ───────────────────────────────────────────────────
+function closeDpop(){$('dpop').classList.remove('show');}
+function showFlightDetail(f,isMil=false){
+  const pop=$('dpop');set('dp-title',(isMil?'🛡 ':'✈ ')+(f.cs||f.icao));
+  const mi=f.milInfo;$('dp-type').textContent=isMil?`MIL — ${mi?.nation||'UNK'} — CLASSIFIED`:'CIVIL // ADS-B';
+  $('dp-type').className='dpop-type '+(isMil?'dt-mil':'dt-flt');
+  const vd=f.vrate>100?'CLIMBING ↑':f.vrate<-100?'DESCENDING ↓':'LEVEL →';
+  const vc=f.vrate>100?'var(--g)':f.vrate<-100?'var(--r)':'var(--c)';
+  const isEmerg=['7700','7600','7500'].includes(f.squawk);
+  const sqD={'7700':'EMERGENCY','7600':'RADIO FAIL','7500':'HIJACK'}[f.squawk]||'NORMAL';
+  $('dp-body').innerHTML=`
+    <div class="drow"><span class="dk">ICAO24</span><span class="dv" style="color:var(--c)">${f.icao}</span></div>
+    <div class="drow"><span class="dk">CALLSIGN</span><span class="dv">${f.cs||'UNKNOWN'}</span></div>
+    <div class="drow"><span class="dk">COUNTRY</span><span class="dv">${f.country}</span></div>
+    ${isMil?`<div class="drow"><span class="dk">NATION</span><span class="dv" style="color:var(--o)">${mi?.flag} ${mi?.nation}</span></div>`:''}
+    <div class="drow"><span class="dk">LAT/LON</span><span class="dv" style="color:var(--g)">${f.lat?.toFixed(4)}° / ${f.lon?.toFixed(4)}°</span></div>
+    <div class="drow"><span class="dk">ALTITUDE</span><span class="dv" style="color:var(--a)">${f.alt?.toLocaleString()} ft — FL${Math.round(f.alt/100).toString().padStart(3,'0')}</span></div>
+    <div class="drow"><span class="dk">SPEED</span><span class="dv" style="color:var(--a)">${f.spd} kts — ${Math.round(f.spd*1.852)} km/h</span></div>
+    <div class="drow"><span class="dk">HEADING</span><span class="dv">${f.hdg}° TRUE</span></div>
+    <div class="drow"><span class="dk">VERT RATE</span><span class="dv" style="color:${vc}">${vd} ${Math.abs(f.vrate)} fpm</span></div>
+    ${isMil?`<div class="drow"><span class="dk">TYPE</span><span class="dv" style="color:var(--o)">${f.milType||'TACTICAL SUPPORT'}</span></div>`:''}
+    <div class="drow"><span class="dk">SQUAWK</span><span class="dv" style="color:${isEmerg?'var(--r)':'var(--g)'}">${f.squawk} — ${sqD}</span></div>`;
+  pop.classList.add('show');
+}
+function showVesselDetail(v){
+  const pop=$('dpop');set('dp-title',(v.isMil?'⚡ ':'🚢 ')+v.name);
+  $('dp-type').textContent=v.type+(v.isMil?' // MILITARY SURFACE':'');
+  $('dp-type').className='dpop-type '+(v.isMil?'dt-mil':'dt-vsl');
+  const dest=v.route[v.route.length-1];
+  $('dp-body').innerHTML=`
+    <div class="drow"><span class="dk">MMSI</span><span class="dv" style="color:var(--c)">${v.mmsi}</span></div>
+    <div class="drow"><span class="dk">TYPE</span><span class="dv">${v.type}</span></div>
+    <div class="drow"><span class="dk">FLAG</span><span class="dv">${v.flag}</span></div>
+    ${v.dwt?`<div class="drow"><span class="dk">DWT</span><span class="dv" style="color:var(--a)">${v.dwt?.toLocaleString()} t</span></div>`:''}
+    <div class="drow"><span class="dk">LAT/LON</span><span class="dv" style="color:var(--g)">${v.lat?.toFixed(4)}° / ${v.lon?.toFixed(4)}°</span></div>
+    <div class="drow"><span class="dk">SPEED</span><span class="dv" style="color:var(--a)">${Math.round(v.vspd)} kts</span></div>
+    <div class="drow"><span class="dk">HEADING</span><span class="dv">${v.hdg}° TRUE</span></div>
+    <div class="drow"><span class="dk">DEST</span><span class="dv">${dest[0].toFixed(2)}° / ${dest[1].toFixed(2)}°</span></div>`;
+  pop.classList.add('show');
+}
+function showCarrierDetail(c){
+  const pop=$('dpop');set('dp-title','🛳 '+c.name);
+  $('dp-type').textContent=`USN CARRIER STRIKE GROUP // ${c.csg} // SIMULATED`;
+  $('dp-type').className='dpop-type dt-mil';
+  $('dp-body').innerHTML=`
+    <div class="drow"><span class="dk">MMSI</span><span class="dv" style="color:var(--c)">${c.mmsi}</span></div>
+    <div class="drow"><span class="dk">CSG</span><span class="dv" style="color:var(--a)">${c.csg}</span></div>
+    <div class="drow"><span class="dk">THEATER</span><span class="dv" style="color:var(--r)">${c.theater}</span></div>
+    <div class="drow"><span class="dk">LAT/LON</span><span class="dv" style="color:var(--g)">${c.lat.toFixed(4)}° / ${c.lon.toFixed(4)}°</span></div>
+    <div class="drow"><span class="dk">SPEED</span><span class="dv" style="color:var(--a)">${Math.round(c.vspd)} kts</span></div>
+    <div class="drow"><span class="dk">HEADING</span><span class="dv">${c.hdg}° TRUE</span></div>
+    <div class="drow"><span class="dk">TRACK NOTE</span><span class="dv" style="color:var(--o)">SIM (OPSEC SAFE)</span></div>`;
+  pop.classList.add('show');
+}
+function showCityDetail(city){
+  const pop=$('dpop');set('dp-title','🏙 '+city.name);
+  $('dp-type').textContent='CITY INTELLIGENCE // '+city.country;
+  $('dp-type').className='dpop-type dt-flt';
+  $('dp-body').innerHTML=`
+    <div class="drow"><span class="dk">COUNTRY</span><span class="dv">${city.country}</span></div>
+    <div class="drow"><span class="dk">STATUS</span><span class="dv" style="color:var(--c)">${city.capital?'NATIONAL CAPITAL':'MAJOR CITY'}</span></div>
+    <div class="drow"><span class="dk">LATITUDE</span><span class="dv" style="color:var(--g)">${city.lat.toFixed(4)}°</span></div>
+    <div class="drow"><span class="dk">LONGITUDE</span><span class="dv" style="color:var(--g)">${city.lon.toFixed(4)}°</span></div>
+    <div class="drow"><span class="dk">POPULATION</span><span class="dv" style="color:var(--a)">${Math.round(city.pop*1000000).toLocaleString()} est.</span></div>`;
+  pop.classList.add('show');
+}
+
+// ── ANALYTICS ─────────────────────────────────────────────────
+const chartCv=$('chart'),cCtx=chartCv.getContext('2d');
+function drawHistogram(){
+  chartCv.width=chartCv.offsetWidth;chartCv.height=chartCv.offsetHeight;
+  const W=chartCv.width,H=chartCv.height,pad=24;
+  const bkts=Array(10).fill(0);
+  allFlights.forEach(f=>{const bi=Math.min(9,Math.floor(f.alt/5000));if(bi>=0)bkts[bi]++;});
+  const mx=Math.max(...bkts,1);
+  const labs=['0-5K','5-10','10-15','15-20','20-25','25-30','30-35','35-40','40-45','45K+'];
+  const bw=(W-pad*2)/bkts.length-3;
+  cCtx.clearRect(0,0,W,H);
+  cCtx.strokeStyle='rgba(0,212,255,0.05)';cCtx.lineWidth=1;
+  for(let i=0;i<=4;i++){const y=pad+(H-pad*2)*i/4;cCtx.beginPath();cCtx.moveTo(pad,y);cCtx.lineTo(W-pad,y);cCtx.stroke();cCtx.fillStyle='rgba(0,212,255,0.3)';cCtx.font='6px Share Tech Mono';cCtx.fillText(Math.round((1-i/4)*mx),2,y+3);}
+  bkts.forEach((v,i)=>{
+    const x=pad+i*(bw+3),bh=(v/mx)*(H-pad*2),y=H-pad-bh;
+    const g=cCtx.createLinearGradient(0,y,0,H-pad);
+    const col=i>7?'rgba(187,102,255,':i>5?'rgba(0,212,255,':'rgba(0,255,136,';
+    g.addColorStop(0,col+'0.8)');g.addColorStop(1,col+'0.04)');
+    cCtx.fillStyle=g;cCtx.fillRect(x,y,bw,bh);
+    cCtx.strokeStyle=col+'0.45)';cCtx.lineWidth=1;cCtx.strokeRect(x,y,bw,bh);
+    cCtx.fillStyle='rgba(0,212,255,0.3)';cCtx.font='5.5px Share Tech Mono';cCtx.fillText(labs[i],x,H-2);
+    if(v>0){cCtx.fillStyle='rgba(200,230,240,0.75)';cCtx.font='6px Share Tech Mono';cCtx.fillText(v,x,y-2);}
+  });
+}
+function buildSparkline(){
+  const sp=$('spark');sp.innerHTML='';
+  const bkts=Array(24).fill(0);
+  allFlights.forEach(f=>{const bi=Math.min(23,Math.floor(f.alt/2000));if(bi>=0)bkts[bi]++;});
+  const mx=Math.max(...bkts,1);
+  bkts.forEach((v,i)=>{
+    const el=document.createElement('div');el.className='spbar';
+    const c=i>18?'rgba(187,102,255,0.7)':i>12?'rgba(0,212,255,0.65)':'rgba(0,255,136,0.45)';
+    el.style.cssText=`height:${v/mx*100}%;background:${c};flex:1;min-height:1px;`;
+    sp.appendChild(el);
+  });
+}
+function buildTelemetry(avgAlt,avgSpd,countries,emerg){
+  $('telem').innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;flex-shrink:0">
+      <div class="sc"><div class="sv2 cv" style="font-size:10px">${allFlights.length.toLocaleString()}</div><div class="sl">AIRBORNE</div></div>
+      <div class="sc"><div class="sv2 ov" style="font-size:10px">${milFlights.length}</div><div class="sl">MILITARY</div></div>
+      <div class="sc"><div class="sv2 pv" style="font-size:10px">${vessels.length}</div><div class="sl">VESSELS</div></div>
+      <div class="sc"><div class="sv2 rv" style="font-size:10px">${emerg}</div><div class="sl">CRITICAL</div></div>
+    </div>
+    <div style="font-size:6px;color:var(--t);letter-spacing:2px;margin-top:4px;flex-shrink:0">TOP ORIGIN NATIONS</div>
+    <div id="top-c" style="margin-top:3px;flex:1;overflow:hidden;"></div>`;
+  const cMap={};
+  civilFlights.forEach(f=>{const k=(f.country||'?').substring(0,14);cMap[k]=(cMap[k]||0)+1;});
+  const top=Object.entries(cMap).sort((a,b)=>b[1]-a[1]).slice(0,5),mx2=top[0]?top[0][1]:1;
+  const tc=$('top-c');if(!tc)return;
+  top.forEach(([c,n])=>{tc.innerHTML+=`<div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;font-size:6.5px;">
+    <span style="color:var(--t2);min-width:68px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c}</span>
+    <div style="flex:1;height:2px;background:rgba(255,255,255,0.04);border-radius:1px;overflow:hidden;">
+      <div style="width:${Math.round(n/mx2*100)}%;height:100%;background:var(--c)"></div>
+    </div><span style="color:var(--c);min-width:22px;text-align:right">${n}</span></div>`;});
+}
+function buildAlerts(sq77,sq76,sq75){
+  const msgs=[];
+  if(sq77>0)msgs.push(`GENERAL EMERGENCY: ${sq77} AIRCRAFT SQUAWKING 7700`);
+  if(sq76>0)msgs.push(`RADIO FAILURE: ${sq76} AIRCRAFT SQUAWKING 7600`);
+  if(sq75>0)msgs.push(`HIJACK ALERT: ${sq75} AIRCRAFT SQUAWKING 7500`);
+  msgs.push(`${milFlights.length} MILITARY CONTACTS ACTIVE — TRACKING`);
+  msgs.push(`${countryCentroids.length} COUNTRY BORDERS RENDERED — TOPOJSON 50M`);
+  msgs.push('NEXUS WORLDVIEW v4 — CIA-GRADE GLOBAL INTELLIGENCE');
+  const bar=$('alert-bar');bar.classList.add('show');
+  $('alert-inner').innerHTML=[...msgs,...msgs].map(m=>`<span class="ai">${m}</span>`).join('');
+}
+function buildTicker(air,avgAlt,avgSpd,countries){
+  const items=[['CIVIL',civilFlights.length.toLocaleString()],['MIL',milFlights.length],
+    ['VESSELS',vessels.length],['COUNTRIES',countries],['AVG ALT',Math.round(avgAlt/1000)+'K ft'],
+    ['AVG SPD',avgSpd+' kts'],['BORDERS',countryFeatures.length],['ATLAS','TOPOJSON 50M']];
+  let h='';[...items,...items].forEach(([k,v])=>{h+=`<span class="titem"><span class="tk">${k}:</span><span class="tv2">${v}</span></span>`;});
+  $('tick').innerHTML=h;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  HIGH-PERFORMANCE DUAL-CANVAS GLOBE RENDERER
+//  offCanvas → static layer (borders, fills, grid, names)
+//                redrawn ONLY when rotY/rotX/zoom changes ≥ threshold
+//  main canvas → dynamic layer (flights, vessels, arcs)
+//                redrawn every animation frame
+// ═══════════════════════════════════════════════════════════════
+const cv=$('globe'), ctx=cv.getContext('2d');
+function resizeGlobe(){
+  cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;
+  if(offCanvas){offCanvas.width=cv.width;offCanvas.height=cv.height;}
+  globeDirty=true;
+}
+resizeGlobe();
+window.addEventListener('resize',()=>{resizeGlobe();drawHistogram();});
+
+// Create offscreen canvas
+offCanvas=document.createElement('canvas');
+offCanvas.width=cv.width;offCanvas.height=cv.height;
+offCtx=offCanvas.getContext('2d');
+
+// ── STATIC GLOBE DRAW (to offCanvas) ─────────────────────────
+// STARS (static, pre-computed positions)
+const STARS=Object.freeze(Array.from({length:420},()=>({
+  x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.1,
+  a:Math.random()*0.45+0.05,sp:Math.random()*80
+})));
+
+// ARC DATA
+const ARC_CITY_NAMES=['NEW YORK','LONDON','TOKYO','DUBAI','SINGAPORE','BERLIN','SYDNEY','HONG KONG','TORONTO','MUMBAI','SAO PAULO','MOSCOW','CHICAGO','LOS ANGELES','PARIS','CAIRO'];
+const CITY_NODES=ARC_CITY_NAMES.map(n=>WORLD_CITIES.find(c=>c.name===n)).filter(Boolean).map(c=>({
+  name:c.name,lat:c.lat,lon:c.lon,country:c.country,pop:c.pop,capital:c.capital
+}));
+const ARC_PAIRS=[[0,1],[0,2],[1,3],[2,3],[0,5],[1,4],[3,4],[2,7],[0,8],[0,12],[5,1],[0,10],[1,11],[3,9],[4,6],[0,13]];
+const arcProg=ARC_PAIRS.map(()=>Math.random());
+const arcSpd=ARC_PAIRS.map(()=>0.0009+Math.random()*0.0016);
+const ARC_COLS=['#00d4ff','#00ff88','#bb66ff','#ffaa00','#00d4ff','#00ff88','#ff6600','#00ffcc'];
+
+function drawOffscreen(W,H,cx,cy,R){
+  const oc=offCtx;
+  oc.clearRect(0,0,W,H);
+  // Stars
+  STARS.forEach(s=>{
+    oc.beginPath();oc.arc(s.x*W,s.y*H,s.r,0,6.283);
+    oc.fillStyle=`rgba(160,210,255,${s.a})`;oc.fill();
+  });
+  // Space glow
+  const sg=oc.createRadialGradient(cx,cy,R*0.85,cx,cy,R*2.3);
+  sg.addColorStop(0,glbColor+'06');sg.addColorStop(1,'transparent');
+  oc.beginPath();oc.arc(cx,cy,R*2.3,0,6.283);oc.fillStyle=sg;oc.fill();
+  // Globe body
+  const gb=oc.createRadialGradient(cx-R*.28,cy-R*.22,R*.02,cx,cy,R);
+  gb.addColorStop(0,'rgba(0,14,28,0.99)');gb.addColorStop(.5,'rgba(0,8,16,0.99)');gb.addColorStop(1,'rgba(0,2,6,1)');
+  oc.beginPath();oc.arc(cx,cy,R,0,6.283);oc.fillStyle=gb;oc.fill();
+  // Ocean shading
+  const od=oc.createRadialGradient(cx-R*.15,cy-R*.15,0,cx,cy,R);
+  od.addColorStop(0,'rgba(0,50,100,0.14)');od.addColorStop(.5,'rgba(0,25,50,0.08)');od.addColorStop(1,'transparent');
+  oc.beginPath();oc.arc(cx,cy,R,0,6.283);oc.fillStyle=od;oc.fill();
+
+  // Grid lines (batched, fewer lines for speed)
+  oc.beginPath();
+  for(let lat=-80;lat<=80;lat+=20){
+    let f=true;
+    for(let lon=-180;lon<=182;lon+=4){
+      ll3dInPlace(lat,lon,R);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(_pvis){if(f){oc.moveTo(_px,_py);f=false;}else oc.lineTo(_px,_py);}else f=true;
+    }
+  }
+  for(let lon=-180;lon<180;lon+=20){
+    let f=true;
+    for(let lat=-88;lat<=88;lat+=4){
+      ll3dInPlace(lat,lon,R);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(_pvis){if(f){oc.moveTo(_px,_py);f=false;}else oc.lineTo(_px,_py);}else f=true;
+    }
+  }
+  oc.strokeStyle='rgba(0,212,255,0.038)';oc.lineWidth=0.4;oc.stroke();
+
+  // Equator highlight
+  oc.beginPath();let eq=true;
+  for(let lon=-180;lon<=182;lon+=3){
+    ll3dInPlace(0,lon,R);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+    if(_pvis){if(eq){oc.moveTo(_px,_py);eq=false;}else oc.lineTo(_px,_py);}else eq=true;
+  }
+  oc.strokeStyle='rgba(0,212,255,0.16)';oc.lineWidth=0.9;oc.stroke();
+
+  // ── COUNTRY FILLS ──
+  if(countryFeatures.length>0){
+    oc.save();
+    countryFeatures.forEach(f=>{
+      if(!f.geometry)return;
+      const isTerr=TERRITORY_IDS.has(Number(f.id));
+      const fillCol=isTerr?'rgba(255,170,0,0.05)':'rgba(0,212,255,0.06)';
+      const rings=f.geometry.type==='Polygon'?f.geometry.coordinates:
+        f.geometry.type==='MultiPolygon'?f.geometry.coordinates.flat():[];
+      rings.forEach(ring=>{
+        oc.beginPath();let started=false,lastV=false;
+        for(let i=0;i<ring.length;i++){
+          ll3dInPlace(ring[i][1],ring[i][0],R+0.3);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+          if(_pvis){if(!started||!lastV){oc.moveTo(_px,_py);started=true;}else oc.lineTo(_px,_py);lastV=true;}
+          else lastV=false;
+        }
+        if(started){oc.closePath();oc.fillStyle=fillCol;oc.fill();}
+      });
+    });
+    oc.restore();
+  }
+
+  // ── COUNTRY BORDERS ──
+  if(countryFeatures.length>0){
+    oc.save();
+    const drawBorderBatch=(territory)=>{
+      oc.beginPath();
+      countryFeatures.forEach(f=>{
+        if(!f.geometry)return;
+        if(TERRITORY_IDS.has(Number(f.id))!==territory)return;
+        const rings=f.geometry.type==='Polygon'?f.geometry.coordinates:
+          f.geometry.type==='MultiPolygon'?f.geometry.coordinates.flat():[];
+        rings.forEach(ring=>{
+          let started=false,lastV=false;
+          for(let i=0;i<ring.length;i++){
+            ll3dInPlace(ring[i][1],ring[i][0],R+0.5);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+            if(_pvis){if(!started||!lastV){oc.moveTo(_px,_py);started=true;}else oc.lineTo(_px,_py);lastV=true;}
+            else lastV=false;
+          }
+        });
+      });
+      oc.strokeStyle=territory?'rgba(255,170,0,0.42)':'rgba(0,200,255,0.42)';
+      oc.lineWidth=0.9;
+      oc.stroke();
+    };
+    oc.shadowBlur=2;oc.shadowColor='rgba(0,212,255,0.25)';
+    drawBorderBatch(false);
+    drawBorderBatch(true);
+    oc.shadowBlur=0;oc.restore();
+  }
+
+  // ── COUNTRY NAME LABELS ──
+  if(countryCentroids.length>0){
+    oc.save();
+    const minSz=zoom<0.4?300:zoom<0.7?120:zoom<1.0?40:zoom<1.5?8:0;
+    const fontSize=Math.max(9,11*Math.min(zoom,2.0));
+    oc.font=`bold ${fontSize}px Share Tech Mono`;
+    countryCentroids.forEach(c=>{
+      const id=Number(c.id);
+      if(!ALWAYS_SHOW_IDS.has(id)&&c.vtx<minSz)return;
+      ll3dInPlace(c.lat,c.lon,R+2);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      // Don't draw if too close to globe edge (depth threshold)
+      const tx=_px,ty=_py;
+      const labelCol=TERRITORY_IDS.has(id)?'rgba(255,170,0,0.75)':'rgba(0,212,255,0.75)';
+      // Draw shadow then text
+      oc.fillStyle='rgba(0,0,0,0.7)';oc.fillText(c.name,tx+0.5,ty+0.5);
+      oc.fillStyle=labelCol;oc.fillText(c.name,tx,ty);
+    });
+    oc.restore();
+  }
+
+  // Globe outline + atmosphere
+  oc.beginPath();oc.arc(cx,cy,R,0,6.283);
+  oc.strokeStyle=glbColor+'22';oc.lineWidth=1.5;oc.shadowBlur=20;oc.shadowColor=glbColor;oc.stroke();oc.shadowBlur=0;
+  const ev=oc.createRadialGradient(cx,cy,R*.6,cx,cy,R);
+  ev.addColorStop(0,'transparent');ev.addColorStop(1,'rgba(1,6,8,0.5)');
+  oc.beginPath();oc.arc(cx,cy,R,0,6.283);oc.fillStyle=ev;oc.fill();
+  const atm=oc.createRadialGradient(cx,cy,R*.95,cx,cy,R*1.1);
+  atm.addColorStop(0,glbColor+'0D');atm.addColorStop(1,'transparent');
+  oc.beginPath();oc.arc(cx,cy,R*1.1,0,6.283);oc.fillStyle=atm;oc.fill();
+}
+
+// ── DRAG + ZOOM CONTROLS ──────────────────────────────────────
+cv.addEventListener('mousedown',e=>{
+  if(e.button!==0)return;isDragging=true;lastMX=e.clientX;lastMY=e.clientY;velX=0;velY=0;
+  cv.classList.add('dragging');e.preventDefault();
+});
+window.addEventListener('mousemove',e=>{
+  if(!isDragging)return;
+  const dx=e.clientX-lastMX,dy=e.clientY-lastMY;lastMX=e.clientX;lastMY=e.clientY;
+  velX=dx;velY=dy;
+  rotY+=dx*0.006;rotX+=dy*0.006;rotX=Math.max(-1.48,Math.min(1.48,rotX));
+  set('h-rot',(((rotY*180/Math.PI)%360+360)%360).toFixed(1)+'°');
+  set('h-tilt',(rotX*180/Math.PI).toFixed(1)+'°');
+  globeDirty=true;
+});
+window.addEventListener('mouseup',()=>{isDragging=false;cv.classList.remove('dragging');});
+cv.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const d=e.deltaY*(e.ctrlKey?0.02:0.0022);
+  zoom=Math.max(0.18,Math.min(8.0,zoom*(1-d)));updateZHUD();globeDirty=true;
+},{passive:false});
+cv.addEventListener('touchstart',e=>{
+  if(e.touches.length===1){isDragging=true;lastMX=e.touches[0].clientX;lastMY=e.touches[0].clientY;velX=0;velY=0;lastTouchDist=null;}
+  else if(e.touches.length===2){isDragging=false;const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;lastTouchDist=Math.sqrt(dx*dx+dy*dy);}
+  e.preventDefault();
+},{passive:false});
+cv.addEventListener('touchmove',e=>{
+  if(e.touches.length===1&&isDragging){const dx=e.touches[0].clientX-lastMX,dy=e.touches[0].clientY-lastMY;lastMX=e.touches[0].clientX;lastMY=e.touches[0].clientY;velX=dx;velY=dy;rotY+=dx*0.006;rotX+=dy*0.006;rotX=Math.max(-1.48,Math.min(1.48,rotX));globeDirty=true;}
+  else if(e.touches.length===2&&lastTouchDist!==null){const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY;const dist=Math.sqrt(dx*dx+dy*dy);zoom=Math.max(0.18,Math.min(8.0,zoom*(dist/lastTouchDist)));lastTouchDist=dist;updateZHUD();globeDirty=true;}
+  e.preventDefault();
+},{passive:false});
+cv.addEventListener('touchend',()=>{isDragging=false;lastTouchDist=null;});
+window.addEventListener('keydown',e=>{
+  if((e.key||'').toLowerCase()==='t'){
+    threatVisible=!threatVisible;
+    $('threat-board')?.classList.toggle('show',threatVisible);
+  }
+});
+
+function applyInertia(){
+  if(!isDragging&&(Math.abs(velX)>0.08||Math.abs(velY)>0.08)){
+    rotY+=velX*0.003;rotX+=velY*0.003;rotX=Math.max(-1.48,Math.min(1.48,rotX));
+    velX*=0.88;velY*=0.88;
+    set('h-rot',(((rotY*180/Math.PI)%360+360)%360).toFixed(1)+'°');
+    set('h-tilt',(rotX*180/Math.PI).toFixed(1)+'°');
+    globeDirty=true;
+  }
+}
+
+// ── MAIN RENDER LOOP ──────────────────────────────────────────
+let twinkling=0;
+function drawGlobe(){
+  frame++;applyInertia();
+  fpsFr++;const fn=Date.now();
+  if(fn-fpsT>1000){set('h-fps',Math.round(fpsFr*1000/(fn-fpsT))+' FPS');fpsFr=0;fpsT=fn;}
+  updateVessels();
+  updateCarriers();
+  updateViewTrig();
+
+  const W=cv.width,H=cv.height,cx=W/2,cy=H/2,R=Math.min(W,H)*0.44*zoom;
+  // Twinkle stars (update offscreen infrequently)
+  twinkling++;
+  const viewChanged=Math.abs(rotY-lastRY)>0.001||Math.abs(rotX-lastRX)>0.001||Math.abs(zoom-lastZoom)>0.002||glbColor!==lastGlbColor;
+  if(globeDirty||viewChanged||twinkling%180===0){
+    // Update star twinkling on offscreen occasionally
+    if(twinkling%180===0){
+      offCtx.fillStyle='#010608';offCtx.fillRect(0,0,W,H);
+      STARS.forEach(s=>{
+        const tw=0.6+0.4*Math.sin(frame*0.009+s.sp);
+        offCtx.beginPath();offCtx.arc(s.x*W,s.y*H,s.r,0,6.283);
+        offCtx.fillStyle=`rgba(160,210,255,${s.a*tw})`;offCtx.fill();
+      });
+    }
+    drawOffscreen(W,H,cx,cy,R);
+    lastRY=rotY;lastRX=rotX;lastZoom=zoom;lastGlbColor=glbColor;globeDirty=false;
+  }
+
+  // Blit offscreen to main canvas
+  ctx.clearRect(0,0,W,H);
+  ctx.drawImage(offCanvas,0,0);
+
+  // ── DYNAMIC LAYER: vessels ──
+  if(activeLayer==='all'||activeLayer==='maritime'){
+    vessels.forEach(v=>{
+      if(!hasLL(v))return;
+      // Trail
+      if(v.trail.length>2){
+        ctx.beginPath();let ft=true;
+        v.trail.slice(-30).forEach(tp=>{
+          ll3dInPlace(tp.lat,tp.lon,R+0.5);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+          if(_pvis){if(ft){ctx.moveTo(_px,_py);ft=false;}else ctx.lineTo(_px,_py);}else ft=true;
+        });
+        ctx.strokeStyle=v.color+'1F';ctx.lineWidth=1.2;ctx.stroke();
+      }
+      ll3dInPlace(v.lat,v.lon,R+1.8);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const tx=_px,ty=_py,isSel=selObj&&selObj.mmsi===v.mmsi,sz=isSel?6:v.isMil?4:3;
+      ctx.shadowBlur=isSel?18:7;ctx.shadowColor=v.color;
+      ctx.beginPath();ctx.arc(tx,ty,sz,0,6.283);ctx.fillStyle=v.color;ctx.globalAlpha=isSel?1:0.88;ctx.fill();ctx.globalAlpha=1;ctx.shadowBlur=0;
+      if(isSel){ctx.beginPath();ctx.arc(tx,ty,12,0,6.283);ctx.strokeStyle=v.color;ctx.lineWidth=1;ctx.globalAlpha=0.4;ctx.stroke();ctx.globalAlpha=1;}
+      // Heading line
+      const ha=v.hdg*Math.PI/180;
+      ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(tx+Math.sin(ha)*8,ty-Math.cos(ha)*8);
+      ctx.strokeStyle=v.color;ctx.lineWidth=1;ctx.globalAlpha=0.5;ctx.stroke();ctx.globalAlpha=1;
+      ctx.fillStyle=v.color+'DD';
+      ctx.font=`${Math.max(11,13*Math.min(zoom,2.2))}px Share Tech Mono`;
+      ctx.fillText(v.name,tx+8,ty-5);
+    });
+    usCarriers.forEach(c=>{
+      ll3dInPlace(c.lat,c.lon,R+2.2);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const x=_px,y=_py;
+      const pulse=((frame+c.pulseOffset)%180)/180;
+      const pr=7+pulse*20;
+      ctx.beginPath();ctx.arc(x,y,pr,0,6.283);ctx.strokeStyle='rgba(255,102,0,'+(0.5-pulse*0.45)+')';ctx.lineWidth=1.1;ctx.stroke();
+      ctx.beginPath();ctx.moveTo(x,y-8);ctx.lineTo(x+8,y);ctx.lineTo(x,y+8);ctx.lineTo(x-8,y);ctx.closePath();
+      ctx.fillStyle='#ff6600';ctx.shadowBlur=22;ctx.shadowColor='#ff6600';ctx.fill();ctx.shadowBlur=0;
+      if(zoom>0.5){
+        ctx.font=`bold ${Math.max(12,15*Math.min(zoom,2.2))}px Share Tech Mono`;
+        ctx.fillStyle='#ff6600';ctx.fillText(c.name,x+12,y-7);
+        ctx.fillStyle='#ffaa00';ctx.fillText(c.theater,x+12,y+9);
+      }
+    });
+    carrierEscorts.forEach(e=>{
+      if(!hasLL(e))return;
+      ll3dInPlace(e.lat,e.lon,R+2);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const x=_px,y=_py;
+      if(e.kind==='DDG'){
+        ctx.beginPath();ctx.moveTo(x,y-4);ctx.lineTo(x+3.8,y+3.6);ctx.lineTo(x-3.8,y+3.6);ctx.closePath();
+        ctx.fillStyle='#ff6600';ctx.globalAlpha=0.95;ctx.fill();ctx.globalAlpha=1;
+      }else{
+        ctx.fillStyle='#bb66ff';ctx.fillRect(x-1.5,y-1.5,3,3);
+        if(zoom>0.95){ctx.fillStyle='rgba(187,102,255,0.95)';ctx.font='6px Share Tech Mono';ctx.fillText('SSN CLASSIFIED',x+6,y-3);}
+      }
+    });
+  }
+
+  // ── DYNAMIC LAYER: civil flights ──
+  if(activeLayer==='all'||activeLayer==='civil'||activeLayer==='emergency'){
+    civilFlights.forEach(f=>{
+      if(!hasLL(f))return;
+      const isEmerg=['7700','7600','7500'].includes(f.squawk);
+      if(activeLayer==='emergency'&&!isEmerg)return;
+      ll3dInPlace(f.lat,f.lon,R+1.1);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const isSel=selObj&&selObj.icao===f.icao;
+      let bc=f.alt>40000?'#bb66ff':f.alt>35000?'#00d4ff':f.alt>25000?'#00ff88':'#ffaa00';
+      let br=1.3;
+      if(isEmerg){bc='#ff3355';br=3.2;}
+      if(isSel){br=5;ctx.shadowBlur=16;ctx.shadowColor=bc;}
+      else if(isEmerg){ctx.shadowBlur=10;ctx.shadowColor='#ff3355';}
+      ctx.beginPath();ctx.arc(_px,_py,br,0,6.283);ctx.fillStyle=bc;ctx.globalAlpha=isSel?1:isEmerg?0.95:0.6;ctx.fill();ctx.globalAlpha=1;ctx.shadowBlur=0;
+      if(isEmerg){const pr=(frame*0.4)%28;ctx.beginPath();ctx.arc(_px,_py,pr,0,6.283);ctx.strokeStyle='#ff3355';ctx.lineWidth=0.7;ctx.globalAlpha=(28-pr)/28*0.4;ctx.stroke();ctx.globalAlpha=1;}
+      if(isSel){ctx.beginPath();ctx.arc(_px,_py,13,0,6.283);ctx.strokeStyle=bc;ctx.lineWidth=1;ctx.globalAlpha=0.45;ctx.stroke();ctx.globalAlpha=1;}
+    });
+  }
+
+  // ── DYNAMIC LAYER: military flights ──
+  if(activeLayer==='all'||activeLayer==='military'){
+    milFlights.forEach(f=>{
+      if(!hasLL(f))return;
+      ll3dInPlace(f.lat,f.lon,R+1.3);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const isSel=selObj&&selObj.icao===f.icao,sz=isSel?6:3;
+      const mcol=milTrackColor(f.milInfo?.nation||'OTHER');
+      ctx.shadowBlur=isSel?20:9;ctx.shadowColor=mcol;
+      ctx.beginPath();ctx.moveTo(_px,_py-sz-1.5);ctx.lineTo(_px+sz+1.5,_py);ctx.lineTo(_px,_py+sz+1.5);ctx.lineTo(_px-sz-1.5,_py);ctx.closePath();
+      ctx.fillStyle=mcol;ctx.globalAlpha=isSel?1:0.9;ctx.fill();ctx.globalAlpha=1;ctx.shadowBlur=0;
+      const b=parseInt(f.icao.slice(-2)||'0',16);
+      const pr2=(frame*0.24+b)%24,pr3=(frame*0.24+b+8)%24;
+      ctx.beginPath();ctx.arc(_px,_py,pr2,0,6.283);ctx.strokeStyle=mcol;ctx.lineWidth=0.7;ctx.globalAlpha=(24-pr2)/24*0.28;ctx.stroke();
+      ctx.beginPath();ctx.arc(_px,_py,pr3,0,6.283);ctx.strokeStyle=mcol;ctx.lineWidth=0.7;ctx.globalAlpha=(24-pr3)/24*0.22;ctx.stroke();ctx.globalAlpha=1;
+      if(zoom>0.5){
+        ctx.font=`${Math.max(9,11*Math.min(zoom,2.0))}px Share Tech Mono`;
+        ctx.fillStyle=mcol;
+        ctx.fillText(`${f.milInfo?.flag||'🛡'} ${f.cs||f.icao}`,_px+8,_py-5);
+        ctx.fillStyle='rgba(255,102,0,0.6)';
+        ctx.fillText(`${f.milInfo?.nation||'OTHER'}`,_px+8,_py+7);
+      }
+    });
+  }
+
+  // ── WEATHER LAYER ──
+  if(activeLayer==='weather'){
+    Object.entries(wxStore).forEach(([name,wd])=>{
+      if(!hasLL(wd))return;
+      ll3dInPlace(wd.lat,wd.lon,R+2);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      const wCol=wd.wi.cls==='wxc'?'#00ff88':wd.wi.cls==='wxr'?'#ff3355':wd.wi.cls==='wxsn'?'#bb66ff':'#00d4ff';
+      ctx.beginPath();ctx.arc(_px,_py,5,0,6.283);ctx.fillStyle=wCol;ctx.globalAlpha=0.9;ctx.fill();ctx.globalAlpha=1;
+      if(zoom>0.55){
+        ctx.fillStyle=wCol;
+        ctx.font=`${Math.max(10,13*Math.min(zoom,2.0))}px Share Tech Mono`;
+        ctx.fillText(name,_px+7,_py-2);
+        ctx.font=`${Math.max(9,11*Math.min(zoom,2.0))}px Share Tech Mono`;
+        ctx.fillText(`${wd.temp}°C`,_px+7,_py+10);
+      }
+    });
+  }
+
+  // ── ARC ROUTES ──
+  if(activeLayer!=='cities'){
+    const cProj=CITY_NODES.map(c=>{ll3dInPlace(c.lat,c.lon,R+2);projectInPlace(_vx,_vy,_vz,cx,cy,R);return{vis:_pvis,x:_px,y:_py,c};});
+    ARC_PAIRS.forEach(([a,b],i)=>{
+      arcProg[i]=(arcProg[i]+arcSpd[i])%1;
+      const pa=cProj[a],pb=cProj[b];if(!pa?.vis||!pb?.vis)return;
+      const ac=ARC_COLS[i%ARC_COLS.length],ca=CITY_NODES[a],cb=CITY_NODES[b];
+      ctx.beginPath();let f2=true;
+      for(let t=0;t<=1;t+=0.025){
+        ll3dInPlace(ca.lat+(cb.lat-ca.lat)*t,ca.lon+(cb.lon-ca.lon)*t,R+Math.sin(t*3.14)*R*0.16);
+        projectInPlace(_vx,_vy,_vz,cx,cy,R);
+        if(_pvis){if(f2){ctx.moveTo(_px,_py);f2=false;}else ctx.lineTo(_px,_py);}else f2=true;
+      }
+      ctx.strokeStyle=ac+'12';ctx.lineWidth=0.7;ctx.stroke();
+      ctx.beginPath();f2=true;
+      for(let t=Math.max(0,arcProg[i]-0.1);t<=arcProg[i];t+=0.009){
+        ll3dInPlace(ca.lat+(cb.lat-ca.lat)*t,ca.lon+(cb.lon-ca.lon)*t,R+Math.sin(t*3.14)*R*0.16);
+        projectInPlace(_vx,_vy,_vz,cx,cy,R);
+        if(_pvis){if(f2){ctx.moveTo(_px,_py);f2=false;}else ctx.lineTo(_px,_py);}else f2=true;
+      }
+      ctx.strokeStyle=ac;ctx.lineWidth=1.7;ctx.shadowBlur=7;ctx.shadowColor=ac;ctx.stroke();ctx.shadowBlur=0;
+      const tp=arcProg[i];
+      ll3dInPlace(ca.lat+(cb.lat-ca.lat)*tp,ca.lon+(cb.lon-ca.lon)*tp,R+Math.sin(tp*3.14)*R*0.16);
+      projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(_pvis){ctx.beginPath();ctx.arc(_px,_py,2.5,0,6.283);ctx.fillStyle=ac;ctx.shadowBlur=12;ctx.shadowColor=ac;ctx.fill();ctx.shadowBlur=0;}
+    });
+
+    cProj.forEach(({vis,x,y,c})=>{
+      if(!vis)return;
+      ctx.beginPath();ctx.arc(x,y,8,0,6.283);ctx.strokeStyle='rgba(0,212,255,0.13)';ctx.lineWidth=1;ctx.stroke();
+      ctx.beginPath();ctx.arc(x,y,4,0,6.283);ctx.strokeStyle='rgba(0,212,255,0.38)';ctx.lineWidth=1;ctx.stroke();
+      ctx.beginPath();ctx.arc(x,y,2,0,6.283);ctx.fillStyle='#00d4ff';ctx.shadowBlur=12;ctx.shadowColor='#00d4ff';ctx.fill();ctx.shadowBlur=0;
+      if(zoom>0.55){ctx.fillStyle='rgba(0,212,255,0.72)';ctx.font=`${Math.max(10,12*Math.min(zoom,2.0))}px Share Tech Mono`;ctx.fillText(c.name,x+9,y-2);}
+    });
+  }
+
+  // ── WORLD CITIES ──
+  if(activeLayer==='all'||activeLayer==='cities'){
+    const minPopForZoom=zoom<0.4?5.0:zoom<0.7?2.0:zoom<1.0?0.5:0.0;
+    WORLD_CITIES.forEach((city,idx)=>{
+      if(city.pop<minPopForZoom&&!city.capital)return;
+      ll3dInPlace(city.lat,city.lon,R+1.7);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+      if(!_pvis)return;
+      let dotColor=city.capital?'#00ffcc':city.pop>=5?'#00d4ff':'#4a7585';
+      const w=wxStore[city.name];
+      if(w&&w.wi){
+        if(w.wi.cls==='wxc')dotColor='#00ff88';
+        else if(w.wi.cls==='wxr')dotColor=w.wi.l==='STORM'?'#ff6600':'#ff3355';
+        else if(w.wi.cls==='wxsn')dotColor='#bb66ff';
+        else dotColor='#00d4ff';
+      }
+      const pulse=1+Math.sin(frame*0.03+idx*0.11)*0.18;
+      const baseR=city.capital?Math.max(2.5,1.8*Math.min(zoom,2.5)):city.pop>=5?Math.max(2.0,1.4*Math.min(zoom,2.5)):Math.max(1.4,1.0*Math.min(zoom,2.5));
+      const rCity=baseR*pulse;
+      if(rCity<0.5)return;
+      ctx.beginPath();ctx.arc(_px,_py,rCity,0,6.283);
+      ctx.fillStyle=dotColor;ctx.shadowBlur=city.capital?10:6;ctx.shadowColor=dotColor;ctx.fill();ctx.shadowBlur=0;
+      if(selObj&&selObj.name===city.name&&selObj.country===city.country){
+        ctx.beginPath();ctx.arc(_px,_py,rCity+5,0,6.283);ctx.strokeStyle=dotColor;ctx.globalAlpha=0.4;ctx.stroke();ctx.globalAlpha=1;
+      }
+      const showTxt=city.pop>=5?zoom>0.55:zoom>0.75;
+      if(!showTxt)return;
+      const lx=_px+7,ly=_py-4;
+      ctx.font=`bold ${Math.max(8,9*Math.min(zoom,2))}px Share Tech Mono`;
+      ctx.fillStyle='rgba(0,0,0,0.7)';ctx.fillText(city.name,lx+0.5,ly+0.5);
+      const labelColor=city.capital?'rgba(0,255,204,0.85)':city.pop>=5?'rgba(0,212,255,0.85)':'rgba(74,117,133,0.85)';
+      ctx.fillStyle=labelColor;
+      ctx.fillText(city.name,lx,ly);
+      ctx.font=`${Math.max(6,7*Math.min(zoom,2))}px Share Tech Mono`;
+      ctx.fillStyle='rgba(74,117,133,0.7)';ctx.fillText(city.country,lx,_py+6);
+      if(w){
+        ctx.font=`${Math.max(7,8*Math.min(zoom,2))}px Share Tech Mono`;
+        ctx.fillStyle=dotColor;ctx.fillText(`${w.temp}°C`,lx,_py+14);
+      }
+    });
+  }
+
+  requestAnimationFrame(drawGlobe);
+}
+drawGlobe();
+
+// ── CLICK TO INSPECT ──────────────────────────────────────────
+cv.addEventListener('click',e=>{
+  if(Math.abs(velX)>2||Math.abs(velY)>2)return;
+  const rect=cv.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
+  const W=cv.width,H=cv.height,cx=W/2,cy=H/2,R=Math.min(W,H)*0.44*zoom;
+  let nearest=null,nearDist=24,nearType='flight';
+  WORLD_CITIES.forEach(city=>{
+    if(!city.lat||!city.lon)return;
+    ll3dInPlace(city.lat,city.lon,R+1.5);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+    if(!_pvis)return;
+    const d=Math.sqrt((_px-mx)**2+(_py-my)**2);
+    if(d<nearDist){nearDist=d;nearest=city;nearType='city';}
+  });
+  vessels.forEach(v=>{
+    if(!hasLL(v))return;
+    ll3dInPlace(v.lat,v.lon,R+1.8);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+    if(!_pvis)return;
+    const d=Math.sqrt((_px-mx)**2+(_py-my)**2);
+    if(d<nearDist){nearDist=d;nearest=v;nearType='vessel';}
+  });
+  [...usCarriers,...carrierEscorts].forEach(c=>{
+    if(!hasLL(c))return;
+    ll3dInPlace(c.lat,c.lon,R+2);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+    if(!_pvis)return;
+    const d=Math.sqrt((_px-mx)**2+(_py-my)**2);
+    if(d<nearDist){nearDist=d;nearest=c;nearType='carrier';}
+  });
+  [...civilFlights,...milFlights].forEach(f=>{
+    if(!hasLL(f))return;
+    ll3dInPlace(f.lat,f.lon,R+1.1);projectInPlace(_vx,_vy,_vz,cx,cy,R);
+    if(!_pvis)return;
+    const d=Math.sqrt((_px-mx)**2+(_py-my)**2);
+    if(d<nearDist-2){nearDist=d;nearest=f;nearType='flight';}
+  });
+  if(nearest){
+    selObj=nearest;
+    if(nearType==='city'){showCityDetail(nearest);addLog('CTY',`CITY: ${nearest.name} — ${nearest.country}`,'info');}
+    else if(nearType==='vessel')showVesselDetail(nearest);
+    else if(nearType==='carrier')showCarrierDetail(nearest);
+    else showFlightDetail(nearest,milFlights.includes(nearest));
+    set('h-sel',nearest.name||nearest.cs||nearest.icao);
+    if(nearType!=='city')addLog(nearType==='vessel'?'AIS':nearType==='carrier'?'NAV':'ATC',`SELECTED: ${nearest.name||nearest.cs||nearest.icao}`,'info');
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  BOOT
+// ═══════════════════════════════════════════════════════════════
+addLog('SYS','NEXUS v4 — DUAL-CANVAS HIGH-PERF GLOBE ONLINE','info');
+addLog('CTL','DRAG=rotate | SCROLL/PINCH=zoom | CLICK=inspect','info');
+addLog('MIL',`ICAO classifier: ${milRanges.length} nation ranges loaded`,'mil');
+addLog('AIS',`${vessels.length} vessels initialized (${vessels.filter(v=>v.isMil).length} military)`,'ship');
+initCarriers();
+buildCarrierTable();
+addLog('NAV',`Carrier groups (SIM): ${usCarriers.length} with escorts active`,'mil');
+$('ld4').className='lsdot ls-done';
+
+loadWorldAtlas().then(()=>{
+  $('ld2').className='lsdot ls-active';
+  set('lsub','CONNECTING TO OPENSKY NETWORK...');
+  fetchWeather();
+  setTimeout(fetchFlights,500);
+  setInterval(fetchWeather,10*60*1000);
+});
+
+// Fail-safe: never stay stuck in loading screen.
+setTimeout(()=>{
+  const loading=$('loading');
+  if(!loading||loading.style.display==='none')return;
+  addLog('SYS','Boot watchdog triggered; forcing demo/live fallback','warn');
+  if(allFlights.length===0)loadDemo();
+  loading.style.display='none';
+},8000);
+</script>
+</body>
+</html>
