@@ -70,4 +70,6 @@ src/services/weather.js — OpenWeather 15 cities
 src/sockets/index.js — Socket.io broadcaster
 src/routes/api.js — all REST endpoints
 
+## 📸 Screenshots
+
 ![Global Map](./screenshots/map.jpg)
