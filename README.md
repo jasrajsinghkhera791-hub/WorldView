@@ -72,4 +72,4 @@ src/routes/api.js — all REST endpoints
 
 ## 📸 Screenshots
 
-![Global Map](./screenshots/map.jpg)
+![Dashboard](map.jpg)
